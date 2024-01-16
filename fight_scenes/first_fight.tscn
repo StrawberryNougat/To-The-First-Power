@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bumdxy42h4pem"]
 
-[ext_resource type="PackedScene" uid="uid://itd28xc30rm3" path="res://battle_scenes.tscn" id="1_spoch"]
+[ext_resource type="PackedScene" uid="uid://itd28xc30rm3" path="res://fight_scenes/battle_scenes.tscn" id="1_spoch"]
 [ext_resource type="PackedScene" uid="uid://q1jsmk1qap2h" path="res://creature_scene.tscn" id="2_g8hdm"]
 [ext_resource type="PackedScene" uid="uid://c0krkt7fd8n83" path="res://first_enemy.tscn" id="3_t0ja6"]
 

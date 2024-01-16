@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://rsypeyappr3m"]
 
-[ext_resource type="PackedScene" uid="uid://b53n7mvh50x7x" path="res://pitstop_scenes.tscn" id="1_bgwpq"]
-[ext_resource type="PackedScene" uid="uid://bcnxpksao7wux" path="res://player_scene.tscn" id="2_dh5dn"]
+[ext_resource type="PackedScene" uid="uid://b53n7mvh50x7x" path="res://pitstop_scenes/pitstop_scenes.tscn" id="1_bgwpq"]
+[ext_resource type="PackedScene" uid="uid://bcnxpksao7wux" path="res://pitstop_scenes/player_scene.tscn" id="2_dh5dn"]
 [ext_resource type="PackedScene" uid="uid://1wlasu6jrmgi" path="res://npc_scenes/agility_trainer.tscn" id="3_uw8ts"]
-[ext_resource type="PackedScene" uid="uid://b0k1h4pwkq0g3" path="res://actionable.tscn" id="4_dxmff"]
+[ext_resource type="PackedScene" uid="uid://b0k1h4pwkq0g3" path="res://dialogue/actionable.tscn" id="4_dxmff"]
 [ext_resource type="PackedScene" uid="uid://b3h5wttrlkjon" path="res://npc_scenes/loiterer.tscn" id="4_xryr6"]
 [ext_resource type="PackedScene" uid="uid://cjv4y0jk4wpfl" path="res://npc_scenes/strength_trainer.tscn" id="5_6cw43"]
 [ext_resource type="Resource" uid="uid://bj0gqpm55gkyn" path="res://dialogue/opening_pitstop_dialogue.dialogue" id="5_nv6of"]
-[ext_resource type="PackedScene" uid="uid://q1jsmk1qap2h" path="res://creature_scene.tscn" id="8_bg8w7"]
+[ext_resource type="PackedScene" uid="uid://q1jsmk1qap2h" path="res://Candidate/creature_scene.tscn" id="8_bg8w7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7l21"]
 size = Vector2(661.997, 1184.78)

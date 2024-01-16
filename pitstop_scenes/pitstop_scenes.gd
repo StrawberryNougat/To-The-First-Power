@@ -15,4 +15,4 @@ func _process(_delta):
 
 func _on_exit_body_entered(body):
 	print("going...")#pass # Replace with function body.
-	get_tree().change_scene_to_file("res://first_fight.tscn")
+	get_tree().change_scene_to_file("res://fight_scenes/first_fight.tscn")

@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8kv1h8yj2x75"]
 
-[ext_resource type="PackedScene" uid="uid://itd28xc30rm3" path="res://battle_scenes.tscn" id="1_m0xuu"]
+[ext_resource type="PackedScene" uid="uid://itd28xc30rm3" path="res://fight_scenes/battle_scenes.tscn" id="1_m0xuu"]
 
 [node name="second_fight" instance=ExtResource("1_m0xuu")]

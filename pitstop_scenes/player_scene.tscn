@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcnxpksao7wux"]
 
-[ext_resource type="Script" path="res://player_scene.gd" id="1_bl3cv"]
-[ext_resource type="Texture2D" uid="uid://cn5auobitdg80" path="res://icon.svg" id="2_t53ql"]
+[ext_resource type="Script" path="res://pitstop_scenes/player_scene.gd" id="1_mwxqu"]
+[ext_resource type="Texture2D" uid="uid://cn5auobitdg80" path="res://Sprites/icon.svg" id="2_w5vsk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kt11b"]
 size = Vector2(50, 49)
@@ -10,7 +10,7 @@ size = Vector2(50, 49)
 radius = 38.0132
 
 [node name="player_scene" type="CharacterBody2D"]
-script = ExtResource("1_bl3cv")
+script = ExtResource("1_mwxqu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5.5)
@@ -19,7 +19,7 @@ shape = SubResource("RectangleShape2D_kt11b")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
 scale = Vector2(0.382813, 0.382813)
-texture = ExtResource("2_t53ql")
+texture = ExtResource("2_w5vsk")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 

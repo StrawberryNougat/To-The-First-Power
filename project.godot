@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="To_The_First_Power"
-run/main_scene="res://opening_pitstop.tscn"
+run/main_scene="res://pitstop_scenes/opening_pitstop.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-dialogue_conditions="*res://dialogue_conditions.gd"
+dialogue_conditions="*res://dialogue/dialogue_conditions.gd"
 
 [editor_plugins]
 

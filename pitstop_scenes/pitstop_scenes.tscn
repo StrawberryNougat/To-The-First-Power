@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b53n7mvh50x7x"]
 
-[ext_resource type="Script" path="res://pitstop_scenes.gd" id="1_vxu75"]
+[ext_resource type="Script" path="res://pitstop_scenes/pitstop_scenes.gd" id="1_vxu75"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gjf5e"]
 distance = -2.0

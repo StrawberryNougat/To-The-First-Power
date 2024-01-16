@@ -1,6 +1,6 @@
 extends Node2D
 
-const bullet_scene = preload("res://basic_bullet.tscn")
+const bullet_scene = preload("res://fight_scenes/bullets/basic_bullet.tscn")
 @onready var shoot_timer = $shoot_timer
 @onready var rotator = $rotator
 

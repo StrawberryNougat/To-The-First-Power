@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://q1jsmk1qap2h"]
 
-[ext_resource type="Script" path="res://creature_scene.gd" id="1_y3hhw"]
-[ext_resource type="Texture2D" uid="uid://33tfvk2qcoeg" path="res://Sprites/candidate_sprites/creature_pink.png" id="2_eoyya"]
-[ext_resource type="Script" path="res://creature_current_design.gd" id="3_bw7nc"]
+[ext_resource type="Script" path="res://Candidate/creature_scene.gd" id="1_2rtne"]
+[ext_resource type="Texture2D" uid="uid://33tfvk2qcoeg" path="res://Sprites/candidate_sprites/creature_pink.png" id="2_wxud0"]
+[ext_resource type="Script" path="res://Candidate/creature_current_design.gd" id="3_06wxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rglyc"]
 size = Vector2(70, 63)
@@ -10,13 +10,13 @@ size = Vector2(70, 63)
 [node name="Creature_Scene" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_y3hhw")
+script = ExtResource("1_2rtne")
 
 [node name="creature_current_design" type="Sprite2D" parent="."]
 position = Vector2(-5.72205e-06, 1.90735e-06)
 scale = Vector2(0.365536, 0.374239)
-texture = ExtResource("2_eoyya")
-script = ExtResource("3_bw7nc")
+texture = ExtResource("2_wxud0")
+script = ExtResource("3_06wxs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 1.5)
