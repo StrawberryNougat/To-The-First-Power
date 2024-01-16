@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://b53n7mvh50x7x"]
+
+[ext_resource type="Script" path="res://pitstop_scenes.gd" id="1_vxu75"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gjf5e"]
+distance = -2.0
+
+[node name="pitstop_scenes" type="Node2D"]
+script = ExtResource("1_vxu75")
+
+[node name="Lower_wall" type="StaticBody2D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lower_wall"]
+position = Vector2(568, 648)
+shape = SubResource("WorldBoundaryShape2D_gjf5e")
+
+[node name="left_wall" type="StaticBody2D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_wall"]
+position = Vector2(0, 246)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_gjf5e")
+
+[node name="upper_wall" type="StaticBody2D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upper_wall"]
+position = Vector2(554, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_gjf5e")
+
+[node name="right_wall" type="StaticBody2D" parent="."]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_wall"]
+position = Vector2(1152, 247)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_gjf5e")

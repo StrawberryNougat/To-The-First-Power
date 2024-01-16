@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://rsypeyappr3m"]
+
+[ext_resource type="PackedScene" uid="uid://b53n7mvh50x7x" path="res://pitstop_scenes.tscn" id="1_bgwpq"]
+[ext_resource type="PackedScene" uid="uid://bcnxpksao7wux" path="res://player_scene.tscn" id="2_dh5dn"]
+[ext_resource type="PackedScene" uid="uid://1wlasu6jrmgi" path="res://npc_scenes/agility_trainer.tscn" id="3_uw8ts"]
+[ext_resource type="PackedScene" uid="uid://b0k1h4pwkq0g3" path="res://actionable.tscn" id="4_dxmff"]
+[ext_resource type="PackedScene" uid="uid://b3h5wttrlkjon" path="res://npc_scenes/loiterer.tscn" id="4_xryr6"]
+[ext_resource type="PackedScene" uid="uid://cjv4y0jk4wpfl" path="res://npc_scenes/strength_trainer.tscn" id="5_6cw43"]
+[ext_resource type="Resource" uid="uid://bj0gqpm55gkyn" path="res://dialogue/opening_pitstop_dialogue.dialogue" id="5_nv6of"]
+[ext_resource type="PackedScene" uid="uid://q1jsmk1qap2h" path="res://creature_scene.tscn" id="8_bg8w7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7l21"]
+size = Vector2(661.997, 1184.78)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4crno"]
+radius = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jxfr2"]
+radius = 50.1597
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dewxg"]
+radius = 56.0089
+
+[node name="opening_pitstop" instance=ExtResource("1_bgwpq")]
+
+[node name="Grass" type="Node2D" parent="." index="0"]
+visible = false
+
+[node name="player_scene" parent="." index="5" instance=ExtResource("2_dh5dn")]
+position = Vector2(564, 473)
+
+[node name="exit" type="Area2D" parent="." index="6"]
+position = Vector2(20, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit" index="0"]
+position = Vector2(537, 23)
+scale = Vector2(0.226168, -0.0775325)
+shape = SubResource("RectangleShape2D_w7l21")
+
+[node name="agility_trainer" parent="." index="7" instance=ExtResource("3_uw8ts")]
+position = Vector2(88, 301)
+
+[node name="Actionable" parent="agility_trainer" index="1" instance=ExtResource("4_dxmff")]
+dialogue_resource = ExtResource("5_nv6of")
+dialogue_start = "Agility_Vendor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agility_trainer/Actionable" index="0"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_4crno")
+
+[node name="loiterer" parent="." index="8" instance=ExtResource("4_xryr6")]
+position = Vector2(544, 143)
+
+[node name="Actionable" parent="loiterer" index="1" instance=ExtResource("4_dxmff")]
+dialogue_resource = ExtResource("5_nv6of")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loiterer/Actionable" index="0"]
+position = Vector2(4, 7)
+shape = SubResource("CircleShape2D_jxfr2")
+
+[node name="strength_trainer" parent="." index="9" instance=ExtResource("5_6cw43")]
+position = Vector2(1050, 262)
+
+[node name="Actionable" parent="strength_trainer" index="1" instance=ExtResource("4_dxmff")]
+dialogue_resource = ExtResource("5_nv6of")
+dialogue_start = "Strength_Vendor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="strength_trainer/Actionable" index="0"]
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_dewxg")
+
+[node name="Creature_Scene" parent="." index="10" instance=ExtResource("8_bg8w7")]
+position = Vector2(572, 573)
+
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcnxpksao7wux"]
+
+[ext_resource type="Script" path="res://player_scene.gd" id="1_bl3cv"]
+[ext_resource type="Texture2D" uid="uid://cn5auobitdg80" path="res://icon.svg" id="2_t53ql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt11b"]
+size = Vector2(50, 49)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fsp11"]
+radius = 38.0132
+
+[node name="player_scene" type="CharacterBody2D"]
+script = ExtResource("1_bl3cv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_kt11b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.382813, 0.382813)
+texture = ExtResource("2_t53ql")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="actionable_finder" type="Area2D" parent="Marker2D"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="actionable_shape" type="CollisionShape2D" parent="Marker2D/actionable_finder"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_fsp11")

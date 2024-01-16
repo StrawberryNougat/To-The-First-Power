@@ -1,0 +1,30 @@
+~ Guide
+if dialogue_conditions.opening_choice == "strength":
+	Loiterer: Ah, you went with that? It's wise to want to beat your oponents quickly...
+elif dialogue_conditions.opening_choice == "speed":
+	Loiterer: Are you a worrywart? That's sweet... That thing you're looking after will be able to run away faster.
+else:
+	Loiterer: Nice to meet you, kiddo. If you don't give your candidate something to train with, you'll surely fall. Talk to me again once you decide
+
+=> END
+~ Strength_Vendor
+
+Strong-Looking Woman: Yeah, I train candidates. Do you want me to give that pet of yours a few lessons in lifting?
+- Sure
+	Strong-Looking Woman: You won't regret this.
+	set dialogue_conditions.opening_choice = "strength"
+- No Thanks, Miss
+	Strong-Looking Woman: Sure. Best of luck.
+	
+=> END
+
+~ Agility_Vendor
+
+Lithe Young Man: Are you sure that little thing can actually dodge? A few hours running with me and I'm sure it will be okay.
+- Gotta go Fast!
+	Lithe Young Man: Good choice, buddy!
+	set dialogue_conditions.opening_choice = "speed"
+- Go away, faker
+	Lithe Young Man: Faker?! Wait, I think this reference is going too far...
+
+=> END
