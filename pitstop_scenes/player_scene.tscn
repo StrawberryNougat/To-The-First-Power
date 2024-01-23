@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcnxpksao7wux"]
 
 [ext_resource type="Script" path="res://pitstop_scenes/player_scene.gd" id="1_mwxqu"]
-[ext_resource type="Texture2D" uid="uid://cjgncx8rbp5lq" path="res://Sprites/player_sprites/placeholder player.png" id="2_2t7kq"]
+[ext_resource type="Texture2D" uid="uid://cjgncx8rbp5lq" path="res://Sprites/player_sprite/placeholder player.png" id="2_2t7kq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kt11b"]
 size = Vector2(32, 67)
