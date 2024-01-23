@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var current_form
 var speed = 300
+var health = 5
 @onready var image = get_node("creature_current_design")
 
 # Called when the node enters the scene tree for the first time.
@@ -17,4 +18,5 @@ func speed_up():
 	speed = 500
 
 func hit():
+	health = health - 1
 	print("Hit!")
