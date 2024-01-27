@@ -2,6 +2,7 @@ extends Sprite2D
 
 var current_build = load("res://Sprites/candidate_sprites/initial_creature.png")
 signal speed_up
+signal strength_up
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +20,7 @@ func change_to_str():
 	current_build = load("res://Sprites/candidate_sprites/creature_pink.png")
 	#current_build.resize(100,100,1)
 	texture = current_build
+	emit_signal("strength_up")
 	
 	
 func change_to_spd():
