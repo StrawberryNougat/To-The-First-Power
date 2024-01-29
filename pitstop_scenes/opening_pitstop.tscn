@@ -72,4 +72,15 @@ shape = SubResource("CircleShape2D_dewxg")
 [node name="Creature_Scene" parent="." index="10" instance=ExtResource("8_bg8w7")]
 position = Vector2(572, 573)
 
+[node name="hitbox_trainer" parent="." index="11" instance=ExtResource("3_uw8ts")]
+position = Vector2(545, 332)
+
+[node name="Actionable" parent="hitbox_trainer" index="1" instance=ExtResource("4_dxmff")]
+dialogue_resource = ExtResource("5_nv6of")
+dialogue_start = "Hitbox_Vendor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox_trainer/Actionable" index="0"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_4crno")
+
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
