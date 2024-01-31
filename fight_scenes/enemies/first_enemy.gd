@@ -39,4 +39,4 @@ func _on_shoot_timer_timeout():
 
 func hit():
 	enemy_health = enemy_health - 1
-	print("band")
+	print("bang")
