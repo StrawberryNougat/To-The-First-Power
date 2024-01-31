@@ -10,7 +10,9 @@ func _ready():
 func _process(delta):
 	position += transform.x * speed * delta
 
-func _on_body_entered(body):
+
+func _on_area_2d_body_entered(body):
+	print("hit")
 	if body.has_method("hit"):
 		body.hit()
-	queue_free()
+	queue_free() # Replace with function body.
