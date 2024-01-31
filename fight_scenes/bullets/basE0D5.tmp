@@ -6,16 +6,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_n2xeh"]
 radius = 3.0
 
-[node name="basic_bullet" type="Node2D"]
+[node name="basic_bullet" type="RigidBody2D"]
 script = ExtResource("1_aay4k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.175, 0.175)
 texture = ExtResource("2_4pxc7")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n2xeh")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
