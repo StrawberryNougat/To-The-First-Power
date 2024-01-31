@@ -12,7 +12,7 @@ func _process(delta):
 
 #if this stops working again try to connect the signal with code
 func _on_area_2d_body_entered(body):
-	print("hit")
+	#print("hit")
 	if body.has_method("hit"):
 		body.hit()
 	queue_free() # Replace with function body.
