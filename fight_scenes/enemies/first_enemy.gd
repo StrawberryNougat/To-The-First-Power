@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 const bullet_scene = preload("res://fight_scenes/bullets/basic_bullet.tscn")
 @onready var shoot_timer = $shoot_timer
@@ -7,7 +7,9 @@ const bullet_scene = preload("res://fight_scenes/bullets/basic_bullet.tscn")
 const rotate_speed = 100
 const shoot_timer_wait = .2
 const spawn_point_count = 4
-const radius = 100
+const radius = 100 
+
+var enemy_health = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +24,6 @@ func _ready():
 	shoot_timer.start()
 	#pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var new_rotation = rotator.rotation_degrees + rotate_speed * delta
@@ -35,3 +36,7 @@ func _on_shoot_timer_timeout():
 		get_tree().root.add_child(bullet)
 		bullet.position = j.global_position
 		bullet.rotation = j.global_rotation
+
+func hit():
+	enemy_health = enemy_health - 1
+	print("band")
