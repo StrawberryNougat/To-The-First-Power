@@ -3,6 +3,7 @@ extends Sprite2D
 var current_build = load("res://Sprites/candidate_sprites/initial_creature.png")
 signal speed_up
 signal strength_up
+signal visible_hitbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,3 +33,4 @@ func change_to_spd():
 func change_to_vis_h():
 	current_build = load("res://Sprites/candidate_sprites/initial_creature.png")
 	texture = current_build
+	emit_signal("visible_hitbox")

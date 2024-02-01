@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://q1jsmk1qap2h"]
+[gd_scene load_steps=6 format=3 uid="uid://q1jsmk1qap2h"]
 
 [ext_resource type="Script" path="res://Candidate/creature_scene.gd" id="1_2rtne"]
 [ext_resource type="Texture2D" uid="uid://33tfvk2qcoeg" path="res://Sprites/candidate_sprites/creature_pink.png" id="2_wxud0"]
 [ext_resource type="Script" path="res://Candidate/creature_current_design.gd" id="3_06wxs"]
+[ext_resource type="Texture2D" uid="uid://crmddsueki0y1" path="res://Sprites/hitbox.png" id="4_gyfsk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rglyc"]
 size = Vector2(70, 63)
@@ -21,3 +22,8 @@ script = ExtResource("3_06wxs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 1.5)
 shape = SubResource("RectangleShape2D_rglyc")
+
+[node name="hitbox" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_gyfsk")
