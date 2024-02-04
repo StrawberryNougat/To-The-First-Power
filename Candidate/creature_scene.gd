@@ -12,7 +12,7 @@ var timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	image.speed_up.connect(speed_up)
-	dialogue_conditions.chose_agility.connect(speed_up)
+	#dialogue_conditions.chose_agility.connect(speed_up)
 	
 	#create timer node on entering scene tree and set timer conditions
 	timer = Timer.new()
