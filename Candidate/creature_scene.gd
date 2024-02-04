@@ -4,14 +4,19 @@ const bullet_scene = preload("res://fight_scenes/bullets/basic_bullet.tscn")
 var current_form
 var speed = 300
 var bullet_scale = Vector2(2.0,2.0)
+var bullet_offset = Vector2(40.0,0)
 var health = 5
 var invincible = false
 var timer 
 @onready var image = get_node("creature_current_design")
+@onready var collider = get_node("CollisionShape2D")
+@onready var hitbox = get_node("hitbox")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	image.speed_up.connect(speed_up)
+	image.strength_up.connect(strength_up)
+	image.visible_hitbox.connect(visible_hitbox)
 	
 	#create timer node on entering scene tree and set timer conditions
 	timer = Timer.new()
@@ -20,7 +25,7 @@ func _ready():
 	timer.one_shot = true
 	timer.autostart = false
 	timer.timeout.connect(_on_timer_timeout)
-	image.strength_up.connect(strength_up)
+	
 
 func _process(_delta):
 	var direction = Input.get_vector("left","right","up","down")
@@ -29,9 +34,18 @@ func _process(_delta):
 	
 func speed_up():
 	speed = 500
+	hitbox.visible = false
 
 func strength_up():
+	speed = 300
+	hitbox.visible = false
 	bullet_scale = Vector2(4.0,4.0)
+	bullet_offset = Vector2(80,0)
+	collider.scale = Vector2(1.7,1.7)
+
+func visible_hitbox():
+	speed = 300
+	hitbox.visible = true
 
 func hit():
 	if !invincible:
@@ -56,7 +70,7 @@ func _unhandled_input(_event):
 		# Set bullet position, rotation, and scale
 		# NOTE: position is offset to not instantiate in the CollisionShape2D of the creature
 		# Currently, this is hard-coded, but once I figure out how to not do it this way I will fix it
-		bullet.position = position + Vector2(40.0, 0.0)
+		bullet.position = position + bullet_offset
 		bullet.rotation = rotation
 		bullet.apply_scale(bullet_scale)
 		return
