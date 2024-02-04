@@ -12,6 +12,7 @@ var timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	image.speed_up.connect(speed_up)
+	dialogue_conditions.chose_agility.connect(speed_up)
 	
 	#create timer node on entering scene tree and set timer conditions
 	timer = Timer.new()
@@ -28,7 +29,10 @@ func _process(_delta):
 	move_and_slide()
 	
 func speed_up():
-	speed = 500
+	if Input.is_action_pressed("Sprint") && speed == 300:
+		speed = 500
+	elif !Input.is_action_pressed("Sprint") && speed == 500:
+		speed = 300
 
 func strength_up():
 	bullet_scale = Vector2(4.0,4.0)
@@ -37,7 +41,7 @@ func hit():
 	if !invincible:
 		health = health - 1
 		print("Hit!")
-		invincible = true
+		invincible = true 
 		timer.start()
 	else:
 		health = health
