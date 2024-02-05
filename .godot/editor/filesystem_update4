@@ -1,0 +1,9 @@
+res://fight_scenes/first_fight.tscn
+res://fight_scenes/enemies/first_enemy.gd
+res://fight_scenes/enemies/first_enemy.tscn
+res://fight_scenes/bullets/basic_bullet.tscn
+res://Candidate/creature_scene.tscn
+res://fight_scenes/battle_scenes.tscn
+res://Candidate/creature_scene.gd
+res://fight_scenes/enemies/enemy_scene.gd
+res://fight_scenes/enemies/Area2D.gd
