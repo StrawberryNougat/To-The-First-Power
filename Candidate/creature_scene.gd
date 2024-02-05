@@ -33,8 +33,12 @@ func _process(_delta):
 	move_and_slide()
 	
 func speed_up():
-	speed = 500
+	if Input.is_action_pressed("Sprint") && speed == 300:
+		speed = 500
+	elif !Input.is_action_pressed("Sprint") && speed == 500:
+		speed = 300
 	hitbox.visible = false
+
 
 func strength_up():
 	speed = 300
@@ -51,7 +55,7 @@ func hit():
 	if !invincible:
 		health = health - 1
 		print("Hit!")
-		invincible = true
+		invincible = true 
 		timer.start()
 	else:
 		health = health
