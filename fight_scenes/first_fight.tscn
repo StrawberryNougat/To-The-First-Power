@@ -1,13 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bumdxy42h4pem"]
+[gd_scene load_steps=5 format=3 uid="uid://bumdxy42h4pem"]
 
 [ext_resource type="PackedScene" uid="uid://itd28xc30rm3" path="res://fight_scenes/battle_scenes.tscn" id="1_spoch"]
+[ext_resource type="Script" path="res://fight_scenes/first_fight.gd" id="2_5j5pe"]
 [ext_resource type="PackedScene" uid="uid://q1jsmk1qap2h" path="res://Candidate/creature_scene.tscn" id="2_g8hdm"]
 [ext_resource type="PackedScene" uid="uid://c0krkt7fd8n83" path="res://fight_scenes/enemies/first_enemy.tscn" id="3_t0ja6"]
 
 [node name="first_fight" instance=ExtResource("1_spoch")]
+script = ExtResource("2_5j5pe")
 
 [node name="Creature_Scene" parent="." index="0" instance=ExtResource("2_g8hdm")]
 position = Vector2(108, 343)
 
 [node name="first_enemy" parent="." index="1" instance=ExtResource("3_t0ja6")]
 position = Vector2(1030, 316)
+
+[node name="Canidate_health" type="Label" parent="." index="2"]
+offset_left = 44.0
+offset_top = 34.0
+offset_right = 84.0
+offset_bottom = 57.0
+
+[node name="Enemy_Health" type="Label" parent="." index="3"]
+offset_left = 998.0
+offset_top = 225.0
+offset_right = 1038.0
+offset_bottom = 248.0
