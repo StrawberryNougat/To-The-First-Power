@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bumdxy42h4pem"]
+[gd_scene load_steps=6 format=3 uid="uid://bumdxy42h4pem"]
 
 [ext_resource type="PackedScene" uid="uid://itd28xc30rm3" path="res://fight_scenes/battle_scenes.tscn" id="1_spoch"]
 [ext_resource type="Script" path="res://fight_scenes/first_fight.gd" id="2_5j5pe"]
 [ext_resource type="PackedScene" uid="uid://q1jsmk1qap2h" path="res://Candidate/creature_scene.tscn" id="2_g8hdm"]
 [ext_resource type="PackedScene" uid="uid://c0krkt7fd8n83" path="res://fight_scenes/enemies/first_enemy.tscn" id="3_t0ja6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5mdi"]
+size = Vector2(101.5, 219)
 
 [node name="first_fight" instance=ExtResource("1_spoch")]
 script = ExtResource("2_5j5pe")
@@ -25,3 +28,11 @@ offset_left = 998.0
 offset_top = 225.0
 offset_right = 1038.0
 offset_bottom = 248.0
+
+[node name="exit" type="Area2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit" index="0"]
+position = Vector2(1101, 333)
+shape = SubResource("RectangleShape2D_a5mdi")
+
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

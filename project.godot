@@ -63,7 +63,7 @@ Sprint={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/opening_pitstop_dialogue.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/opening_pitstop_dialogue.dialogue", "res://dialogue/second_pitstop_dialogue.dialogue")
 
 [layer_names]
 
