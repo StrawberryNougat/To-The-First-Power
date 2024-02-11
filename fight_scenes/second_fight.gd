@@ -14,6 +14,7 @@ func _process(delta):
 	$Enemy_Health.text = "Enemy HP: %s" % str(enemy.enemy_health)
 
 func _on_exit_body_entered(body):
+	#will go to 'ending' but going back to pitstop 2 for now
 	print("going to pitstop 2...")
 	get_tree().change_scene_to_file("res://pitstop_scenes/second_pitstop.tscn")
 	

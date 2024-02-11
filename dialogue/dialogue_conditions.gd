@@ -5,6 +5,10 @@ signal chose_strength
 signal chose_agility
 signal chose_visible_hitbox
 
+var second_choice = ""
+signal chose_more_health
+signal chose_smaller_hitbox
+
 func _process(_delta):
 	if (opening_choice == "strength"):
 		emit_signal("chose_strength")
