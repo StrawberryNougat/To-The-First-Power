@@ -26,7 +26,7 @@ func change_to_str():
 	
 	
 func change_to_spd():
-	current_build = load("res://Sprites/candidate_sprites/speedy_creature.png")
+	current_build = load("res://Sprites/candidate_sprites/to_the_first_power_speedup.png")
 	texture = current_build
 	emit_signal("speed_up")
 
