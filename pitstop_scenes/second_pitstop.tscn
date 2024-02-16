@@ -38,7 +38,7 @@ position = Vector2(105, 296)
 
 [node name="Actionable" parent="more_health_trainer" index="1" instance=ExtResource("7_307ej")]
 dialogue_resource = ExtResource("8_gtgct")
-dialogue_start = "more_health"
+dialogue_start = "More_Health"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="more_health_trainer/Actionable" index="0"]
 position = Vector2(1, 9)
@@ -49,7 +49,7 @@ position = Vector2(1017, 308)
 
 [node name="Actionable" parent="smaller_hitbox_trainer" index="1" instance=ExtResource("7_307ej")]
 dialogue_resource = ExtResource("8_gtgct")
-dialogue_start = "smaller_hitbox"
+dialogue_start = "Smaller_Hitbox"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="smaller_hitbox_trainer/Actionable" index="0"]
 position = Vector2(-1, 8)

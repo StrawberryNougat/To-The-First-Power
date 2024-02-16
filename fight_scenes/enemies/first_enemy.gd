@@ -34,6 +34,7 @@ func _on_shoot_timer_timeout():
 	for j in rotator.get_children():
 		var bullet = bullet_scene.instantiate()# Replace with function body.
 		get_tree().root.add_child(bullet)
+		bullet.add_to_group("bullets")
 		bullet.position = j.global_position
 		bullet.rotation = j.global_rotation
 
