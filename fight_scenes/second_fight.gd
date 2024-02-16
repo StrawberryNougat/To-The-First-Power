@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var canidate = get_node("Creature_Scene")
-@onready var enemy = get_node("first_enemy")
+@onready var enemy = get_node("second_enemy")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

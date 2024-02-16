@@ -8,16 +8,25 @@ var bullet_offset = Vector2(40.0,0)
 var health = 5
 var invincible = false
 var timer 
+var paused = false
+
+#This is because of the continuous signal emitting to check that health only goes up once
+var moreHealth = false
+
 @onready var image = get_node("creature_current_design")
 @onready var collider = get_node("CollisionShape2D")
 @onready var hitbox = get_node("hitbox")
+@onready var pauseMenu = get_node("Node2D/PauseMenu")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	image.speed_up.connect(speed_up)
 	image.strength_up.connect(strength_up)
 	image.visible_hitbox.connect(visible_hitbox)
+	image.more_health.connect(more_health)
 	
+
 	#create timer node on entering scene tree and set timer conditions
 	timer = Timer.new()
 	add_child(timer)
@@ -25,13 +34,14 @@ func _ready():
 	timer.one_shot = true
 	timer.autostart = false
 	timer.timeout.connect(_on_timer_timeout)
-	
+
 
 func _process(_delta):
 	var direction = Input.get_vector("left","right","up","down")
 	velocity = direction * speed 
 	move_and_slide()
-	
+
+
 func speed_up():
 	if Input.is_action_pressed("Sprint") && speed == 300:
 		speed = 500
@@ -47,9 +57,19 @@ func strength_up():
 	bullet_offset = Vector2(80,0)
 	collider.scale = Vector2(1.7,1.7)
 
+
 func visible_hitbox():
 	speed = 300
 	hitbox.visible = true
+
+
+func more_health():
+	if (!moreHealth):
+		health = health + 3
+		moreHealth = true
+	else:
+		health = health
+
 
 func hit():
 	if !invincible:
@@ -63,7 +83,6 @@ func hit():
 	
 func _on_timer_timeout():
 	invincible = false
-	health = health - 1
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("interact") and get_tree().current_scene.name == "first_fight":
@@ -78,3 +97,15 @@ func _unhandled_input(_event):
 		bullet.rotation = rotation
 		bullet.apply_scale(bullet_scale)
 		return
+
+
+func _on_pause_menu_pause():
+	pauseMenu.Pause()
+
+
+func _on_pause_menu_resume():
+	pauseMenu.Resume()
+
+
+func _on_pause_menu_clearout():
+	pass
