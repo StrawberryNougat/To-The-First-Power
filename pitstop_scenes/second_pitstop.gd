@@ -7,10 +7,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	pass
 
 
 func _on_exit_body_entered(body):
-	print("going...")#pass # Replace with function body.
-	get_tree().change_scene_to_file("res://fight_scenes/first_fight.tscn")
+	print("going second fight...")
+	get_tree().change_scene_to_file("res://fight_scenes/second_fight.tscn")
+	#pass # Replace with function body.

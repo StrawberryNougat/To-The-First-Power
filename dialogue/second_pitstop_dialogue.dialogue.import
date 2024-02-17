@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://du0bk6c6t44sq"
+path="res://.godot/imported/second_pitstop_dialogue.dialogue-817f19a9957a07dac4671d9ea35f7c05.tres"
+
+[deps]
+
+source_file="res://dialogue/second_pitstop_dialogue.dialogue"
+dest_files=["res://.godot/imported/second_pitstop_dialogue.dialogue-817f19a9957a07dac4671d9ea35f7c05.tres"]
+
+[params]
+
+defaults=true

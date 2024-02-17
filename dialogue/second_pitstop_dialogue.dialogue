@@ -1,0 +1,7 @@
+~ More_Health
+Person: Dialogue
+- Yes
+	Person: Cool
+	set dialogue_conditions.second_choice = "more_health"
+~ Smaller_Hitbox
+#other branch goes here!

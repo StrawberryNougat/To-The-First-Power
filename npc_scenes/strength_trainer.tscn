@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://cjv4y0jk4wpfl"]
 
-[ext_resource type="Texture2D" uid="uid://nqnkxoi0lfg6" path="res://Sprites/npc_sprites/npc_placeholder.png" id="1_1w4ed"]
+[ext_resource type="Texture2D" uid="uid://ogkkpfgl22s2" path="res://Sprites/npc_sprites/StrongTrainer.png" id="1_8ikoq"]
 
 [node name="strength_trainer" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_1w4ed")
+texture = ExtResource("1_8ikoq")

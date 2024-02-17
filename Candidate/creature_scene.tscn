@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://q1jsmk1qap2h"]
+[gd_scene load_steps=7 format=3 uid="uid://q1jsmk1qap2h"]
 
 [ext_resource type="Script" path="res://Candidate/creature_scene.gd" id="1_2rtne"]
 [ext_resource type="Texture2D" uid="uid://33tfvk2qcoeg" path="res://Sprites/candidate_sprites/creature_pink.png" id="2_wxud0"]
 [ext_resource type="Script" path="res://Candidate/creature_current_design.gd" id="3_06wxs"]
 [ext_resource type="Texture2D" uid="uid://crmddsueki0y1" path="res://Sprites/hitbox.png" id="4_gyfsk"]
+[ext_resource type="Script" path="res://Candidate/PauseMenu.gd" id="5_1mdtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rglyc"]
 size = Vector2(70, 63)
@@ -27,3 +28,80 @@ shape = SubResource("RectangleShape2D_rglyc")
 visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_gyfsk")
+
+[node name="Node2D" type="Node2D" parent="."]
+top_level = true
+
+[node name="PauseMenu" type="Panel" parent="Node2D"]
+process_mode = 3
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(1200, 700)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_1mdtg")
+
+[node name="MainMenu" type="Button" parent="Node2D/PauseMenu"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 225.0
+offset_right = 1050.0
+offset_bottom = 350.0
+text = "Main Menu"
+
+[node name="LastPitStop" type="Button" parent="Node2D/PauseMenu"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 400.0
+offset_right = 1050.0
+offset_bottom = 525.0
+text = "Return To Last Pitstop"
+
+[node name="Music" type="HSlider" parent="Node2D/PauseMenu"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 545.0
+offset_right = 500.0
+offset_bottom = 645.0
+
+[node name="Music Volume" type="Label" parent="Node2D/PauseMenu/Music"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 65.0
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 22
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="VFX" type="HSlider" parent="Node2D/PauseMenu"]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 545.0
+offset_right = 1100.0
+offset_bottom = 645.0
+
+[node name="VFX Volume" type="Label" parent="Node2D/PauseMenu/VFX"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 65.0
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 22
+text = "VFX Volume"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Node2D/PauseMenu"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = 1050.0
+offset_bottom = 175.0
+text = "Resume"
+
+[connection signal="clearout" from="Node2D/PauseMenu" to="." method="_on_pause_menu_clearout"]
+[connection signal="pause" from="Node2D/PauseMenu" to="." method="_on_pause_menu_pause"]
+[connection signal="resume" from="Node2D/PauseMenu" to="." method="_on_pause_menu_resume"]
+[connection signal="pressed" from="Node2D/PauseMenu/MainMenu" to="Node2D/PauseMenu" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Node2D/PauseMenu/LastPitStop" to="Node2D/PauseMenu" method="_on_last_pit_stop_pressed"]
+[connection signal="pressed" from="Node2D/PauseMenu/Resume" to="Node2D/PauseMenu" method="_on_resume_pressed"]
