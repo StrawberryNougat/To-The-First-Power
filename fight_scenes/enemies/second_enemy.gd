@@ -42,3 +42,10 @@ func hit():
 	enemy_health = enemy_health - 1
 	print("bang")
 
+func on_exit_fight():
+	# This may be inefficient way of doing things, alternatively, we could make a data struct
+	# when we spawn the bullets so we dont have to search, but we can do that when performance
+	# becomes a problem.
+	for bullet in get_tree().get_nodes_in_group("bullets"):
+		bullet.queue_free()
+

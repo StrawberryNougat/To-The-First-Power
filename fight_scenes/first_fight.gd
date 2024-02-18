@@ -5,7 +5,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	canidate.creature_dead.connect(player_creature_dead)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,5 +15,9 @@ func _process(delta):
 
 func _on_exit_body_entered(body):
 	print("going to pitstop 2...")
+	enemy.on_exit_fight()
 	get_tree().change_scene_to_file("res://pitstop_scenes/second_pitstop.tscn")
 	
+func player_creature_dead():
+	enemy.on_exit_fight()
+	get_tree().change_scene_to_file("res://pitstop_scenes/opening_pitstop.tscn")

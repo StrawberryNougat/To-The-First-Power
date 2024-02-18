@@ -1,4 +1,4 @@
-extends Node2D
+extends VisibleOnScreenNotifier2D
 
 const speed = 100
 # Called when the node enters the scene tree for the first time.
@@ -16,3 +16,6 @@ func _on_area_2d_body_entered(body):
 	if body.has_method("hit"):
 		body.hit()
 	queue_free() # Replace with function body.
+
+func _on_screen_exited() -> void:
+	queue_free()

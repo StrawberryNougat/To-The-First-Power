@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal creature_dead()
+
 const bullet_scene = preload("res://fight_scenes/bullets/basic_bullet.tscn")
 var current_form
 var speed = 300
@@ -92,6 +94,9 @@ func hit():
 	else:
 		health = health
 		#print("Nope!")
+	#If anyone is listening, the current creature is indeed dead.
+	if health <= 0:
+		emit_signal("creature_dead")
 	
 func _on_timer_timeout():
 	invincible = false
