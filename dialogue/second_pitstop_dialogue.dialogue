@@ -3,5 +3,11 @@ Person: Dialogue
 - Yes
 	Person: Cool
 	set dialogue_conditions.second_choice = "more_health"
+=> END
+
 ~ Smaller_Hitbox
-#other branch goes here!
+Queen: Gaslight, Gatekeep, Girlboss!
+- Slay
+	Queen: Periodt.
+	set dialogue_conditions.second_choice = "smaller_hitbox"
+=> END

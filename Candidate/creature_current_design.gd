@@ -5,6 +5,7 @@ signal speed_up
 signal strength_up
 signal visible_hitbox
 signal more_health
+signal smaller_hitbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +14,7 @@ func _ready():
 	dialogue_cond.chose_agility.connect(change_to_spd)
 	dialogue_cond.chose_visible_hitbox.connect(change_to_vis_h)
 	dialogue_cond.chose_more_health.connect(change_to_more_health)
+	dialogue_cond.chose_smaller_hitbox.connect(change_to_sm_hb)
 	set_process_input(true) # Replace with function body.
 	texture = current_build
 
@@ -40,3 +42,8 @@ func change_to_more_health():
 	current_build = load("res://Sprites/candidate_sprites/initial_creature.png") #Uncomment when sprite is made
 	texture = current_build
 	emit_signal("more_health")
+
+func change_to_sm_hb():
+	current_build = load("res://Sprites/candidate_sprites/initial_creature.png") #Uncomment when sprite is made
+	texture = current_build
+	emit_signal("smaller_hitbox")
