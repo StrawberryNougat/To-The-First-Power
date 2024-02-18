@@ -14,4 +14,5 @@ func _process(delta):
 func _on_exit_body_entered(body):
 	print("going second fight...")
 	get_tree().change_scene_to_file("res://fight_scenes/second_fight.tscn")
+	
 	#pass # Replace with function body.

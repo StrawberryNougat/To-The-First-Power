@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal enemy_dead()
+
 const bullet_scene = preload("res://fight_scenes/bullets/basic_bullet.tscn")
 @onready var shoot_timer = $shoot_timer
 @onready var rotator = $rotator
@@ -45,8 +47,11 @@ func _on_shoot_timer_timeout():
 		bullet.rotation = j.global_rotation
 
 func hit():
-	enemy_health = enemy_health - 1
-	print("bang")
+	if enemy_health <= 0:
+		on_exit_fight()
+		emit_signal("enemy_dead")
+	else:
+		enemy_health -= 1
 
 
 func _on_phase_one_timer_timeout():
@@ -61,6 +66,8 @@ func _on_phase_two_timer_timeout():
 	#pass # Replace with function body.
 
 func on_exit_fight():
+	#stop shooting bullets.
+	shoot_timer.stop()
 	# This may be inefficient way of doing things, alternatively, we could make a data struct
 	# when we spawn the bullets so we dont have to search, but we can do that when performance
 	# becomes a problem.
