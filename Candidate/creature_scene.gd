@@ -13,7 +13,9 @@ var timer
 var paused = false
 
 #This is because of the continuous signal emitting to check that health only goes up once
+var vis_hitbox = false
 var moreHealth = false
+var sm_hb = false
 
 @onready var image = get_node("creature_current_design")
 @onready var collider = get_node("CollisionShape2D")
@@ -27,6 +29,7 @@ func _ready():
 	image.strength_up.connect(strength_up)
 	image.visible_hitbox.connect(visible_hitbox)
 	image.more_health.connect(more_health)
+	image.smaller_hitbox.connect(smaller_hitbox)
 	
 
 	#create timer node on entering scene tree and set timer conditions
@@ -61,8 +64,10 @@ func strength_up():
 
 
 func visible_hitbox():
-	speed = 300
-	hitbox.visible = true
+	if (!vis_hitbox):
+		speed = 300
+		hitbox.visible = true
+		vis_hitbox = true
 
 
 func more_health():
@@ -72,6 +77,13 @@ func more_health():
 	else:
 		health = health
 
+func smaller_hitbox():
+	if (!sm_hb):
+		collider.scale /= 4
+		hitbox.scale /= 4
+		if (vis_hitbox):
+			hitbox.visible = true
+		sm_hb = true
 
 func hit():
 	if !invincible:

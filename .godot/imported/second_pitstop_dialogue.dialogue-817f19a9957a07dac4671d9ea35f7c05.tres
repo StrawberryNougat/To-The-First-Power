@@ -1,0 +1,158 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_o2288"]
+
+[resource]
+script = ExtResource("1_o2288")
+using_states = PackedStringArray()
+titles = {
+"More_Health": "2",
+"Smaller_Hitbox": "9"
+}
+character_names = PackedStringArray("Person", "Queen")
+first_title = "2"
+lines = {
+"1": {
+"id": "1",
+"next_id": "2",
+"text": "More_Health",
+"type": "title"
+},
+"10": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "10",
+"next_id": "11",
+"next_id_after": "13",
+"responses": PackedStringArray("10"),
+"tags": PackedStringArray(),
+"text": "Slay",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Slay",
+"type": "response"
+},
+"11": {
+"character": "Queen",
+"character_replacements": Array[Dictionary]([]),
+"id": "11",
+"next_id": "12",
+"parent_id": "10",
+"tags": PackedStringArray(),
+"text": "Periodt.",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Periodt.",
+"type": "dialogue"
+},
+"12": {
+"id": "12",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "dialogue_conditions"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "second_choice"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "smaller_hitbox"
+}])
+},
+"next_id": "13",
+"parent_id": "10",
+"type": "mutation"
+},
+"13": {
+"id": "13",
+"is_snippet": false,
+"next_id": "end",
+"type": "goto"
+},
+"2": {
+"character": "Person",
+"character_replacements": Array[Dictionary]([]),
+"id": "2",
+"next_id": "3",
+"tags": PackedStringArray(),
+"text": "Dialogue",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Dialogue",
+"type": "dialogue"
+},
+"3": {
+"character": "",
+"character_replacements": Array[Dictionary]([]),
+"id": "3",
+"next_id": "4",
+"next_id_after": "6",
+"responses": PackedStringArray("3"),
+"tags": PackedStringArray(),
+"text": "Yes",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Yes",
+"type": "response"
+},
+"4": {
+"character": "Person",
+"character_replacements": Array[Dictionary]([]),
+"id": "4",
+"next_id": "5",
+"parent_id": "3",
+"tags": PackedStringArray(),
+"text": "Cool",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Cool",
+"type": "dialogue"
+},
+"5": {
+"id": "5",
+"mutation": {
+"expression": Array[Dictionary]([{
+"type": "variable",
+"value": "dialogue_conditions"
+}, {
+"type": "dot"
+}, {
+"type": "variable",
+"value": "second_choice"
+}, {
+"type": "assignment",
+"value": "="
+}, {
+"type": "string",
+"value": "more_health"
+}])
+},
+"next_id": "6",
+"parent_id": "3",
+"type": "mutation"
+},
+"6": {
+"id": "6",
+"is_snippet": false,
+"next_id": "end",
+"type": "goto"
+},
+"8": {
+"id": "8",
+"next_id": "9",
+"text": "Smaller_Hitbox",
+"type": "title"
+},
+"9": {
+"character": "Queen",
+"character_replacements": Array[Dictionary]([]),
+"id": "9",
+"next_id": "10",
+"tags": PackedStringArray(),
+"text": "Gaslight, Gatekeep, Girlboss!",
+"text_replacements": Array[Dictionary]([]),
+"translation_key": "Gaslight, Gatekeep, Girlboss!",
+"type": "dialogue"
+}
+}
+metadata/dialogue_manager_version = "2.31.0"
