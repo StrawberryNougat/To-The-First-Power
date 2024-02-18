@@ -20,4 +20,12 @@ texture = ExtResource("2_ylqi8")
 position = Vector2(-6, 6)
 shape = SubResource("RectangleShape2D_t4383")
 
+[node name="phase_one_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="phase_two_timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="phase_one_timer" to="." method="_on_phase_one_timer_timeout"]
+[connection signal="timeout" from="phase_two_timer" to="." method="_on_phase_two_timer_timeout"]
