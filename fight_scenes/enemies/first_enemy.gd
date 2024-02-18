@@ -3,11 +3,15 @@ extends CharacterBody2D
 const bullet_scene = preload("res://fight_scenes/bullets/basic_bullet.tscn")
 @onready var shoot_timer = $shoot_timer
 @onready var rotator = $rotator
+@onready var phase_one = $phase_one_timer
+@onready var phase_two = $phase_two_timer
 
-const rotate_speed = 100
-const shoot_timer_wait = .2
-const spawn_point_count = 4
-const radius = 100 
+
+
+var rotate_speed = 100
+var shoot_timer_wait = .2
+var spawn_point_count = 4
+var radius = 100 
 
 var enemy_health = 20
 
@@ -22,6 +26,8 @@ func _ready():
 		rotator.add_child(spawn_point)
 	shoot_timer.wait_time = shoot_timer_wait
 	shoot_timer.start()
+	phase_one.wait_time = 10
+	phase_two.wait_time = 20
 	#pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,3 +47,15 @@ func _on_shoot_timer_timeout():
 func hit():
 	enemy_health = enemy_health - 1
 	print("bang")
+
+
+func _on_phase_one_timer_timeout():
+	rotate_speed = 0
+	shoot_timer_wait = .1
+	#pass # Replace with function body.
+
+
+func _on_phase_two_timer_timeout():
+	rotate_speed = 500
+	shoot_timer_wait = .4
+	#pass # Replace with function body.
