@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://qmfkddm8hpmv"]
+
+[ext_resource type="Script" path="res://UI/MainMenu.gd" id="1_5451c"]
+[ext_resource type="Texture2D" uid="uid://dspq231is0lgr" path="res://Sprites/candidate_sprites/initial_creature.png" id="2_oxba2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h7gl1"]
+font_size = 64
+
+[node name="MainMenu" type="MarginContainer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_5451c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "To The First Power"
+label_settings = SubResource("LabelSettings_h7gl1")
+
+[node name="StartButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="Logo" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_oxba2")
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

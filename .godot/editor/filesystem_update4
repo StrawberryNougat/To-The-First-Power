@@ -1,10 +1,2 @@
-res://npc_scenes/strength_trainer.tscn
-res://fight_scenes/enemies/first_enemy.tscn
 res://Candidate/creature_scene.tscn
-res://fight_scenes/bullets/basic_bullet.tscn
-res://fight_scenes/first_fight.tscn
-res://pitstop_scenes/opening_pitstop.tscn
-res://dialogue/actionable.tscn
-res://npc_scenes/agility_trainer.tscn
-res://pitstop_scenes/player_scene.tscn
-res://fight_scenes/first_fight.gd
+res://Candidate/creature_scene.gd
