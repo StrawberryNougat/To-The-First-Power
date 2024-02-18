@@ -74,21 +74,21 @@ theme_override_font_sizes/font_size = 22
 text = "Music Volume"
 horizontal_alignment = 1
 
-[node name="VFX" type="HSlider" parent="Node2D/PauseMenu"]
+[node name="SFX" type="HSlider" parent="Node2D/PauseMenu"]
 layout_mode = 0
 offset_left = 650.0
 offset_top = 545.0
 offset_right = 1100.0
 offset_bottom = 645.0
 
-[node name="VFX Volume" type="Label" parent="Node2D/PauseMenu/VFX"]
+[node name="SFX" type="Label" parent="Node2D/PauseMenu/SFX"]
 layout_mode = 0
 offset_left = 150.0
 offset_top = 65.0
 offset_right = 300.0
 offset_bottom = 100.0
 theme_override_font_sizes/font_size = 22
-text = "VFX Volume"
+text = "SFX Volume"
 horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="Node2D/PauseMenu"]
@@ -99,7 +99,6 @@ offset_right = 1050.0
 offset_bottom = 175.0
 text = "Resume"
 
-[connection signal="clearout" from="Node2D/PauseMenu" to="." method="_on_pause_menu_clearout"]
 [connection signal="pause" from="Node2D/PauseMenu" to="." method="_on_pause_menu_pause"]
 [connection signal="resume" from="Node2D/PauseMenu" to="." method="_on_pause_menu_resume"]
 [connection signal="pressed" from="Node2D/PauseMenu/MainMenu" to="Node2D/PauseMenu" method="_on_main_menu_pressed"]
