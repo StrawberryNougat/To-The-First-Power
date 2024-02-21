@@ -122,7 +122,3 @@ func _on_pause_menu_pause():
 
 func _on_pause_menu_resume():
 	pauseMenu.Resume()
-
-
-func _on_pause_menu_clearout():
-	pass

@@ -2,7 +2,6 @@ extends Panel
 
 signal pause
 signal resume
-signal clearout
 
 var paused = false
 var form
@@ -30,7 +29,8 @@ func Resume():
 
 
 func _on_main_menu_pressed():
-	print("going to main...")
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://UI/MainMenu.tscn")
 
 
 func _on_last_pit_stop_pressed():
