@@ -1,11 +1,14 @@
 extends Sprite2D
 
 var current_build = load("res://Sprites/candidate_sprites/initial_creature.png")
+var attacking
 signal speed_up
 signal strength_up
 signal visible_hitbox
 signal more_health
 signal smaller_hitbox
+var attacking_sprite = load("res://Sprites/candidate_sprites/initial_creature.png")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +18,7 @@ func _ready():
 	dialogue_cond.chose_visible_hitbox.connect(change_to_vis_h)
 	dialogue_cond.chose_more_health.connect(change_to_more_health)
 	dialogue_cond.chose_smaller_hitbox.connect(change_to_sm_hb)
+	attacking = false
 	set_process_input(true) # Replace with function body.
 	texture = current_build
 
@@ -30,6 +34,7 @@ func change_to_str():
 	
 func change_to_spd():
 	current_build = load("res://Sprites/candidate_sprites/to_the_first_power_speedup.png")
+	attacking_sprite = load("res://Sprites/candidate_sprites/to_the_first_power_speedup_attack.png")
 	texture = current_build
 	emit_signal("speed_up")
 
@@ -47,3 +52,6 @@ func change_to_sm_hb():
 	current_build = load("res://Sprites/candidate_sprites/initial_creature.png") #Uncomment when sprite is made
 	texture = current_build
 	emit_signal("smaller_hitbox")
+
+
+	

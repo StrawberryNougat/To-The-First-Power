@@ -21,6 +21,8 @@ var sm_hb = false
 @onready var collider = get_node("CollisionShape2D")
 @onready var hitbox = get_node("hitbox")
 @onready var pauseMenu = get_node("Node2D/PauseMenu")
+@onready var animation = get_node("creature_current_design/shoot_animation")
+var current_animation
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,6 +32,7 @@ func _ready():
 	image.visible_hitbox.connect(visible_hitbox)
 	image.more_health.connect(more_health)
 	image.smaller_hitbox.connect(smaller_hitbox)
+	#animation.stop()
 	
 
 	#create timer node on entering scene tree and set timer conditions
@@ -39,6 +42,8 @@ func _ready():
 	timer.one_shot = true
 	timer.autostart = false
 	timer.timeout.connect(_on_timer_timeout)
+	
+	
 
 
 func _process(_delta):
@@ -48,6 +53,8 @@ func _process(_delta):
 
 
 func speed_up():
+	#animation.stop()
+	#animation.play("speed_idle")
 	if Input.is_action_pressed("Sprint") && speed == 300:
 		speed = 500
 	elif !Input.is_action_pressed("Sprint") && speed == 500:
@@ -102,17 +109,19 @@ func _on_timer_timeout():
 	invincible = false
 
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed("interact") and get_tree().current_scene.name == "first_fight":
+	if Input.is_action_just_pressed("interact") and (get_tree().current_scene.name == "first_fight" or get_tree().current_scene.name == "second_fight"):
 		# Instantiate bullet and add it to scene
+		animation.visible = true
+		animation.play("speed_ani")
 		var bullet = bullet_scene.instantiate()
 		get_tree().root.add_child(bullet)
-		
 		# Set bullet position, rotation, and scale
 		# NOTE: position is offset to not instantiate in the CollisionShape2D of the creature
 		# Currently, this is hard-coded, but once I figure out how to not do it this way I will fix it
 		bullet.position = position + bullet_offset
 		bullet.rotation = rotation
 		bullet.apply_scale(bullet_scale)
+		#animation.visible = false
 		return
 
 
