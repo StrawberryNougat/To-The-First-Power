@@ -125,6 +125,7 @@ func _unhandled_input(_event):
 		shoot_sfx.play()
 		var bullet = bullet_scene.instantiate()
 		get_tree().root.add_child(bullet)
+		bullet.add_to_group("bullets")
 		# Set bullet position, rotation, and scale
 		# NOTE: position is offset to not instantiate in the CollisionShape2D of the creature
 		# Currently, this is hard-coded, but once I figure out how to not do it this way I will fix it
