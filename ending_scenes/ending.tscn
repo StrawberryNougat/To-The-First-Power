@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://btv1s4md7glov"]
+[gd_scene load_steps=9 format=3 uid="uid://btv1s4md7glov"]
 
 [ext_resource type="PackedScene" uid="uid://b3h5wttrlkjon" path="res://npc_scenes/loiterer.tscn" id="1_bkure"]
 [ext_resource type="PackedScene" uid="uid://b53n7mvh50x7x" path="res://pitstop_scenes/pitstop_scenes.tscn" id="1_fkx5r"]
 [ext_resource type="Script" path="res://ending_scenes/ending.gd" id="1_lqmyj"]
 [ext_resource type="PackedScene" uid="uid://b0k1h4pwkq0g3" path="res://dialogue/actionable.tscn" id="2_gkxpa"]
 [ext_resource type="Resource" uid="uid://br805cox7ryqn" path="res://dialogue/ending_dialogue.dialogue" id="3_l1d17"]
+[ext_resource type="PackedScene" uid="uid://bcnxpksao7wux" path="res://pitstop_scenes/player_scene.tscn" id="6_btgop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4devs"]
 size = Vector2(661.997, 1184.78)
@@ -33,3 +34,8 @@ dialogue_start = "ending_intro"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="loiterer/Actionable" index="0"]
 position = Vector2(4, 7)
 shape = SubResource("CircleShape2D_1x4ea")
+
+[node name="player_scene" parent="." index="6" instance=ExtResource("6_btgop")]
+position = Vector2(569, 520)
+
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
