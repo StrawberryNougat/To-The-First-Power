@@ -42,7 +42,7 @@ func _on_last_pit_stop_pressed():
 		get_tree().call_group("bullets", "queue_free")
 		get_tree().change_scene_to_file("res://pitstop_scenes/opening_pitstop.tscn")
 		
-	elif get_tree().current_scene.name == "second_pitstop" || get_tree().current_scene.name == "second_fight":
+	elif get_tree().current_scene.name == "second_pitstop" || get_tree().current_scene.name == "second_fight" || get_tree().current_scene.name == "ending":
 		form.second_choice = ""
 		get_tree().paused = false
 		get_tree().call_group("bullets", "queue_free")

@@ -18,7 +18,6 @@ func _process(delta):
 func _on_exit_body_entered(body):
 	#will go to 'ending'
 	print("going to ending scene...")
-	enemy.on_exit_fight()
 	get_tree().change_scene_to_file("res://ending_scenes/ending.tscn")
 	
 func player_creature_dead() -> void:
@@ -28,6 +27,6 @@ func player_creature_dead() -> void:
 
 func enemy_is_dead() -> void:
 	$Enemy_Health.visible = false
-	enemy.visible = false
+	remove_child(enemy)
 	$exit/CollisionShape2D.call_deferred("set_disabled",false)
 	

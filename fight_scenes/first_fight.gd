@@ -17,7 +17,6 @@ func _process(delta):
 
 func _on_exit_body_entered(body):
 	print("going to pitstop 2...")
-	enemy.on_exit_fight()
 	get_tree().change_scene_to_file("res://pitstop_scenes/second_pitstop.tscn")
 	
 func player_creature_dead() -> void:
@@ -26,5 +25,5 @@ func player_creature_dead() -> void:
 	
 func enemy_is_dead() -> void:
 	$Enemy_Health.visible = false
-	enemy.visible = false
+	remove_child(enemy)
 	$exit/CollisionShape2D.call_deferred("set_disabled",false)

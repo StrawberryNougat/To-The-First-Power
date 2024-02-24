@@ -71,6 +71,7 @@ func strength_up():
 	bullet_scale = Vector2(4.0,4.0)
 	bullet_offset = Vector2(80,0)
 	collider.scale = Vector2(1.7,1.7)
+	current_animation = null
 
 
 func visible_hitbox():
@@ -78,6 +79,7 @@ func visible_hitbox():
 		speed = 300
 		hitbox.visible = true
 		vis_hitbox = true
+	current_animation = null
 
 
 func more_health():
@@ -86,6 +88,7 @@ func more_health():
 		moreHealth = true
 	else:
 		health = health
+	current_animation = null
 
 func smaller_hitbox():
 	if (!sm_hb):
@@ -94,6 +97,7 @@ func smaller_hitbox():
 		if (vis_hitbox):
 			hitbox.visible = true
 		sm_hb = true
+	current_animation = null
 
 func hit():
 	if !invincible:
