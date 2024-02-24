@@ -22,6 +22,7 @@ var sm_hb = false
 @onready var hitbox = get_node("hitbox")
 @onready var pauseMenu = get_node("Node2D/PauseMenu")
 @onready var animation = get_node("creature_current_design/shoot_animation")
+@onready var shoot_sfx = get_node("shoot_sfx")
 var current_animation
 
 
@@ -113,6 +114,7 @@ func _unhandled_input(_event):
 		# Instantiate bullet and add it to scene
 		animation.visible = true
 		animation.play("speed_ani")
+		shoot_sfx.play()
 		var bullet = bullet_scene.instantiate()
 		get_tree().root.add_child(bullet)
 		# Set bullet position, rotation, and scale
