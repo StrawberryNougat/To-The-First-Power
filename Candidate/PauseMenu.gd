@@ -32,6 +32,9 @@ func Resume():
 
 func _on_main_menu_pressed():
 	get_tree().paused = false
+	form.opening_choice = ""
+	form.second_choice = ""
+	get_tree().call_group("bullets", "queue_free")
 	get_tree().change_scene_to_file("res://UI/MainMenu.tscn")
 
 
