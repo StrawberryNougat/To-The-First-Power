@@ -16,10 +16,10 @@ func _process(delta):
 	$Enemy_Health.text = "Enemy HP: %s" % str(enemy.enemy_health)
 
 func _on_exit_body_entered(body):
-	#will go to 'ending' but going back to pitstop 2 for now
-	print("going to pitstop 2...")
+	#will go to 'ending'
+	print("going to ending scene...")
 	enemy.on_exit_fight()
-	get_tree().change_scene_to_file("res://pitstop_scenes/second_pitstop.tscn")
+	get_tree().change_scene_to_file("res://ending_scenes/ending.tscn")
 	
 func player_creature_dead() -> void:
 	enemy.on_exit_fight()
