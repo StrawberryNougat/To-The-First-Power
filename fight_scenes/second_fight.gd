@@ -28,5 +28,6 @@ func player_creature_dead() -> void:
 
 func enemy_is_dead() -> void:
 	$Enemy_Health.visible = false
+	enemy.visible = false
 	$exit/CollisionShape2D.call_deferred("set_disabled",false)
 	

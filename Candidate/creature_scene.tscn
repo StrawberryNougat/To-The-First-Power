@@ -1,10 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://q1jsmk1qap2h"]
+[gd_scene load_steps=10 format=3 uid="uid://q1jsmk1qap2h"]
 
 [ext_resource type="Script" path="res://Candidate/creature_scene.gd" id="1_2rtne"]
 [ext_resource type="Texture2D" uid="uid://33tfvk2qcoeg" path="res://Sprites/candidate_sprites/creature_pink.png" id="2_wxud0"]
 [ext_resource type="Script" path="res://Candidate/creature_current_design.gd" id="3_06wxs"]
+[ext_resource type="Texture2D" uid="uid://it0jm63qnnl7" path="res://Sprites/candidate_sprites/to_the_first_power_speedup.png" id="4_brbea"]
 [ext_resource type="Texture2D" uid="uid://crmddsueki0y1" path="res://Sprites/hitbox.png" id="4_gyfsk"]
 [ext_resource type="Script" path="res://Candidate/PauseMenu.gd" id="5_1mdtg"]
+[ext_resource type="Texture2D" uid="uid://bduhxin25f47f" path="res://Sprites/candidate_sprites/to_the_first_power_speedup_attack.png" id="5_r3vvy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5b3on"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_r3vvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_brbea")
+}],
+"loop": false,
+"name": &"speed_ani",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rglyc"]
 size = Vector2(70, 63)
@@ -19,6 +35,12 @@ position = Vector2(-5.72205e-06, 1.90735e-06)
 scale = Vector2(0.365536, 0.374239)
 texture = ExtResource("2_wxud0")
 script = ExtResource("3_06wxs")
+
+[node name="shoot_animation" type="AnimatedSprite2D" parent="creature_current_design"]
+visible = false
+position = Vector2(1.56539e-05, -5.09661e-06)
+sprite_frames = SubResource("SpriteFrames_5b3on")
+animation = &"speed_ani"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 1.5)
