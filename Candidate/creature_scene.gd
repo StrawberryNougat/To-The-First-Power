@@ -22,6 +22,7 @@ var sm_hb = false
 @onready var hitbox = get_node("hitbox")
 @onready var pauseMenu = get_node("Node2D/PauseMenu")
 @onready var animation = get_node("creature_current_design/shoot_animation")
+@onready var shoot_sfx = get_node("Node2D/PauseMenu/shoot_sfx")
 var current_animation
 
 
@@ -42,6 +43,7 @@ func _ready():
 	timer.one_shot = true
 	timer.autostart = false
 	timer.timeout.connect(_on_timer_timeout)
+	current_animation = null
 	
 	
 
@@ -59,6 +61,7 @@ func speed_up():
 		speed = 500
 	elif !Input.is_action_pressed("Sprint") && speed == 500:
 		speed = 300
+	current_animation = "speed_ani"
 	hitbox.visible = false
 
 
@@ -111,8 +114,11 @@ func _on_timer_timeout():
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("interact") and (get_tree().current_scene.name == "first_fight" or get_tree().current_scene.name == "second_fight"):
 		# Instantiate bullet and add it to scene
-		animation.visible = true
-		animation.play("speed_ani")
+		
+		if (current_animation != null):
+			animation.visible = true
+			animation.play(current_animation)
+		shoot_sfx.play()
 		var bullet = bullet_scene.instantiate()
 		get_tree().root.add_child(bullet)
 		# Set bullet position, rotation, and scale

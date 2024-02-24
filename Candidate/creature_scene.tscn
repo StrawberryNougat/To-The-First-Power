@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://q1jsmk1qap2h"]
+[gd_scene load_steps=11 format=3 uid="uid://q1jsmk1qap2h"]
 
 [ext_resource type="Script" path="res://Candidate/creature_scene.gd" id="1_2rtne"]
 [ext_resource type="Texture2D" uid="uid://33tfvk2qcoeg" path="res://Sprites/candidate_sprites/creature_pink.png" id="2_wxud0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://crmddsueki0y1" path="res://Sprites/hitbox.png" id="4_gyfsk"]
 [ext_resource type="Script" path="res://Candidate/PauseMenu.gd" id="5_1mdtg"]
 [ext_resource type="Texture2D" uid="uid://bduhxin25f47f" path="res://Sprites/candidate_sprites/to_the_first_power_speedup_attack.png" id="5_r3vvy"]
+[ext_resource type="AudioStream" uid="uid://bkgn5lfmf3j8o" path="res://Sounds/sfx/BulletSFX.mp3" id="8_sei1r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5b3on"]
 animations = [{
@@ -121,8 +122,14 @@ offset_right = 1050.0
 offset_bottom = 175.0
 text = "Resume"
 
+[node name="shoot_sfx" type="AudioStreamPlayer" parent="Node2D/PauseMenu"]
+stream = ExtResource("8_sei1r")
+volume_db = -2.0
+bus = &"Sfx"
+
 [connection signal="pause" from="Node2D/PauseMenu" to="." method="_on_pause_menu_pause"]
 [connection signal="resume" from="Node2D/PauseMenu" to="." method="_on_pause_menu_resume"]
 [connection signal="pressed" from="Node2D/PauseMenu/MainMenu" to="Node2D/PauseMenu" method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Node2D/PauseMenu/LastPitStop" to="Node2D/PauseMenu" method="_on_last_pit_stop_pressed"]
+[connection signal="value_changed" from="Node2D/PauseMenu/SFX" to="Node2D/PauseMenu" method="_on_sfx_value_changed"]
 [connection signal="pressed" from="Node2D/PauseMenu/Resume" to="Node2D/PauseMenu" method="_on_resume_pressed"]
