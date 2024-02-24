@@ -22,7 +22,7 @@ var sm_hb = false
 @onready var hitbox = get_node("hitbox")
 @onready var pauseMenu = get_node("Node2D/PauseMenu")
 @onready var animation = get_node("creature_current_design/shoot_animation")
-@onready var shoot_sfx = get_node("shoot_sfx")
+@onready var shoot_sfx = get_node("Node2D/PauseMenu/shoot_sfx")
 var current_animation
 
 

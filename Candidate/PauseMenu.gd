@@ -5,10 +5,12 @@ signal resume
 
 var paused = false
 var form
+var sfx 
 
 
 func _ready():
 	form = get_node("/root/dialogue_conditions")
+	sfx = get_node("shoot_sfx")
 
 func _process(delta):
 	if Input.is_action_just_pressed("Pause") && !paused:
@@ -49,3 +51,8 @@ func _on_last_pit_stop_pressed():
 
 func _on_resume_pressed():
 	Resume()
+
+
+func _on_sfx_value_changed(value):
+	AudioServer.set_bus_volume_db(2, linear_to_db(value))
+	#pass # Replace with function body.

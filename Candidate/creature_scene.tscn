@@ -122,12 +122,14 @@ offset_right = 1050.0
 offset_bottom = 175.0
 text = "Resume"
 
-[node name="shoot_sfx" type="AudioStreamPlayer" parent="."]
+[node name="shoot_sfx" type="AudioStreamPlayer" parent="Node2D/PauseMenu"]
 stream = ExtResource("8_sei1r")
 volume_db = -2.0
+bus = &"Sfx"
 
 [connection signal="pause" from="Node2D/PauseMenu" to="." method="_on_pause_menu_pause"]
 [connection signal="resume" from="Node2D/PauseMenu" to="." method="_on_pause_menu_resume"]
 [connection signal="pressed" from="Node2D/PauseMenu/MainMenu" to="Node2D/PauseMenu" method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Node2D/PauseMenu/LastPitStop" to="Node2D/PauseMenu" method="_on_last_pit_stop_pressed"]
+[connection signal="value_changed" from="Node2D/PauseMenu/SFX" to="Node2D/PauseMenu" method="_on_sfx_value_changed"]
 [connection signal="pressed" from="Node2D/PauseMenu/Resume" to="Node2D/PauseMenu" method="_on_resume_pressed"]
