@@ -12,4 +12,4 @@ func _process(delta):
 
 func _on_exit_body_entered(body):
 	print("going to credits...")#pass # Replace with function body.
-	get_tree().change_scene_to_file("res://ending_scenes/credits.tscn")
+	get_tree().change_scene_to_file("res://UI/credits.tscn")

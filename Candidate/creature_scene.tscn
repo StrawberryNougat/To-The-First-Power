@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://q1jsmk1qap2h"]
 
 [ext_resource type="Script" path="res://Candidate/creature_scene.gd" id="1_2rtne"]
-[ext_resource type="Texture2D" uid="uid://33tfvk2qcoeg" path="res://Sprites/candidate_sprites/creature_pink.png" id="2_wxud0"]
 [ext_resource type="Script" path="res://Candidate/creature_current_design.gd" id="3_06wxs"]
 [ext_resource type="Texture2D" uid="uid://it0jm63qnnl7" path="res://Sprites/candidate_sprites/to_the_first_power_speedup.png" id="4_brbea"]
 [ext_resource type="Texture2D" uid="uid://crmddsueki0y1" path="res://Sprites/hitbox.png" id="4_gyfsk"]
+[ext_resource type="Texture2D" uid="uid://dspq231is0lgr" path="res://Sprites/candidate_sprites/initial_creature.png" id="4_lfr8q"]
 [ext_resource type="Script" path="res://Candidate/PauseMenu.gd" id="5_1mdtg"]
 [ext_resource type="Texture2D" uid="uid://bduhxin25f47f" path="res://Sprites/candidate_sprites/to_the_first_power_speedup_attack.png" id="5_r3vvy"]
 [ext_resource type="AudioStream" uid="uid://bkgn5lfmf3j8o" path="res://Sounds/sfx/BulletSFX.mp3" id="8_sei1r"]
@@ -33,7 +33,7 @@ script = ExtResource("1_2rtne")
 
 [node name="creature_current_design" type="Sprite2D" parent="."]
 position = Vector2(-5.72205e-06, 1.90735e-06)
-texture = ExtResource("2_wxud0")
+texture = ExtResource("4_lfr8q")
 script = ExtResource("3_06wxs")
 
 [node name="shoot_animation" type="AnimatedSprite2D" parent="creature_current_design"]
