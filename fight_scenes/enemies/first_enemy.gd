@@ -5,8 +5,6 @@ signal enemy_dead()
 const bullet_scene = preload("res://fight_scenes/bullets/basic_bullet.tscn")
 @onready var shoot_timer = $shoot_timer
 @onready var rotator = $rotator
-@onready var phase_one = $phase_one_timer
-@onready var phase_two = $phase_two_timer
 
 @onready var phase_timer = $phase_timer
 @onready var util_timer = $util_timer
@@ -60,6 +58,7 @@ func startAttack(type: int, delay: int):
 	# when adding a new attack, add its number to the match and set the values desired. Radius can also be changed
 	#could add variables for starting rotation here which are set by default to current rotation
 	var starting_rotation = rotator.rotation_degrees
+	
 	match type:
 		1: 
 			rotate_speed = 0
