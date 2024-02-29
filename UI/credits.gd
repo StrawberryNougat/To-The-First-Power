@@ -1,15 +1,18 @@
 extends Node2D
+var text
+var speed = 50
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	text = $Control/RichTextLabel
+	text.text = "[center]%s[/center]" % text.text
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	text.position -= transform.y*speed*delta
 
 
 func _on_button_pressed():
