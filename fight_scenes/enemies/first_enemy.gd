@@ -24,19 +24,17 @@ var shot_speed = 100
 var curAttack = 0
 #array for storing the order of attacks, each number is an attack type
 #0: basic, 1: clock, 2: harder basic, 3: circles, 4: sprinkler, 5: *reverse, 6: rate change, 7: on off
-var attackOrder = [0, 7, 4, 3, 1, 2, 6, 1]
+var attackOrder = [0, 7, 4, 3, 1, 2, 6, 5, 1]
 #array for storing the length of attacks, each number is a duration in seconds
-var attackLengths = [5, 5.5, 10, 10, 10, 10, 10, 5]
+var attackLengths = [5, 5.5, 10, 10, 10, 10, 10, 5, 5]
 
 var enemy_health = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	util_timer.wait_time = 3
 	startAttack(attackOrder[curAttack], attackLengths[curAttack])
 	
 	#pass # Replace with function body.
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var shouldRotate = true
@@ -59,7 +57,8 @@ func _process(delta):
 				if (shoot_timer.paused):
 					shoot_timer.paused = false
 				else:
-					shoot_timer.paused = true
+					if (phase_timer.time_left > .5):
+						shoot_timer.paused = true
 				util_timer.wait_time = .5
 				util_timer.start()
 	if (shouldRotate):
@@ -84,7 +83,7 @@ func startAttack(type: int, delay: int):
 			shoot_timer.wait_time = .4
 			spawn_point_count = 5
 		3:
-			rotate_speed = 4
+			rotate_speed = 3.33
 			shoot_timer.wait_time = 1.5
 			spawn_point_count = 36
 		4:
@@ -100,6 +99,7 @@ func startAttack(type: int, delay: int):
 			rotate_speed = -50
 			shoot_timer.wait_time = .15
 			spawn_point_count = 1
+			shot_speed = 340
 			starting_rotation = 225
 		6:
 			rotate_speed = -100
@@ -143,10 +143,11 @@ func _on_phase_timer_timeout():
 	util_timer.one_shot = true
 	util_timer.stop()
 	#Go to the next attack, could make this index into an array later for more customization, or randomize
-	curAttack = (curAttack + 1) % len(attackOrder)
+	var nextAttack = (curAttack + 1) % len(attackOrder)
 	#wait some time after end of a phase
 	await get_tree().create_timer(phase_delay).timeout
-	startAttack(attackOrder[curAttack], attackLengths[curAttack])
+	startAttack(attackOrder[nextAttack], attackLengths[nextAttack])
+	curAttack = nextAttack
 
 #this timer controls how fast enemy shoots, on timeout it creates bullets at each child of the rotator
 func _on_shoot_timer_timeout():
@@ -154,7 +155,7 @@ func _on_shoot_timer_timeout():
 	match attackOrder[curAttack]:
 		5:
 			#placeholder until character bullets and enemy bullets are different
-			scene = bullet_scene
+			scene = reverse_bullet_scene
 		6:
 			shot_speed = map(shoot_timer.wait_time, .05, .15, 100, 200)	
 	for j in rotator.get_children():
@@ -168,13 +169,7 @@ func _on_shoot_timer_timeout():
 	#make changes after each shot depending on current attack
 	match attackOrder[curAttack]:
 		3:
-			match shot_speed:
-				100:
-					shot_speed = 80
-				80:
-					shot_speed = 60
-				_:
-					shot_speed = 100
+			shot_speed = cycle(shot_speed, [100, 80, 60])
 		6:
 			decreaseFireRate(.05, .20, .005, true)
 			
@@ -188,6 +183,16 @@ func setRotation(new_rotation: float):
 func reverseRotator():
 	rotate_speed = -rotate_speed
 
+#cycles through values in a given array, if curr is at index 1, returns val at index 2
+func cycle(curr: float, values: Array):
+	var i = 0
+	for x in range(len(values)):
+		if (values[i] == curr):
+			i = x
+	return values[(i + 1) % len(values)]
+	
+#decreases fire rate from min to max (smaller is faster) in steps of size change. 
+#if loop is true, this wraps around to min after reaching max
 func decreaseFireRate(min: float, max: float, change: float, loop: bool):
 	shoot_timer.wait_time += change
 	if (loop):
@@ -201,7 +206,7 @@ func map(x: float, in_min: float, in_max: float, out_min: float, out_max: float)
 	return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 
 
-func hit():
+func hit_enemy():
 	if enemy_health <= 0:
 		on_exit_fight()
 		emit_signal("enemy_dead")
