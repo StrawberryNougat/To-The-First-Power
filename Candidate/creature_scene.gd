@@ -12,6 +12,7 @@ var invincible = false
 var timer 
 var paused = false
 
+
 #This is because of the continuous signal emitting to check that health only goes up once
 var vis_hitbox = false
 var moreHealth = false
@@ -23,6 +24,7 @@ var sm_hb = false
 @onready var pauseMenu = get_node("Node2D/PauseMenu")
 @onready var animation = get_node("creature_current_design/shoot_animation")
 @onready var shoot_sfx = get_node("Node2D/PauseMenu/shoot_sfx")
+
 var current_animation
 
 

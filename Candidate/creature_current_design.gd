@@ -8,6 +8,7 @@ signal visible_hitbox
 signal more_health
 signal smaller_hitbox
 var attacking_sprite = load("res://Sprites/candidate_sprites/initial_creature.png")
+@onready var change_form_sfx = $change_form_sfx
 
 
 # Called when the node enters the scene tree for the first time.

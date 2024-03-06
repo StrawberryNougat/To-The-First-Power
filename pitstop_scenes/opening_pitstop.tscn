@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://rsypeyappr3m"]
+[gd_scene load_steps=14 format=3 uid="uid://rsypeyappr3m"]
 
 [ext_resource type="PackedScene" uid="uid://b53n7mvh50x7x" path="res://pitstop_scenes/pitstop_scenes.tscn" id="1_bgwpq"]
 [ext_resource type="PackedScene" uid="uid://bcnxpksao7wux" path="res://pitstop_scenes/player_scene.tscn" id="2_dh5dn"]
+[ext_resource type="Texture2D" uid="uid://vpxcidx82gt1" path="res://Sprites/flower_field.png" id="2_nfa8e"]
 [ext_resource type="PackedScene" uid="uid://1wlasu6jrmgi" path="res://npc_scenes/agility_trainer.tscn" id="3_uw8ts"]
 [ext_resource type="PackedScene" uid="uid://b0k1h4pwkq0g3" path="res://dialogue/actionable.tscn" id="4_dxmff"]
 [ext_resource type="PackedScene" uid="uid://b3h5wttrlkjon" path="res://npc_scenes/loiterer.tscn" id="4_xryr6"]
@@ -23,8 +24,10 @@ radius = 56.0089
 
 [node name="opening_pitstop" instance=ExtResource("1_bgwpq")]
 
-[node name="Grass" type="Node2D" parent="." index="0"]
-visible = false
+[node name="Sprite2D2" type="Sprite2D" parent="." index="0"]
+position = Vector2(554, 324)
+scale = Vector2(2.13281, 2.02161)
+texture = ExtResource("2_nfa8e")
 
 [node name="player_scene" parent="." index="5" instance=ExtResource("2_dh5dn")]
 position = Vector2(564, 473)
