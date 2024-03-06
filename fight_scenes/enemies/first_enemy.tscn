@@ -1,23 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0krkt7fd8n83"]
 
 [ext_resource type="Script" path="res://fight_scenes/enemies/first_enemy.gd" id="1_rfmrc"]
-[ext_resource type="Texture2D" uid="uid://8fr68slagcbe" path="res://Sprites/enemy_placeholder.png" id="2_ylqi8"]
+[ext_resource type="Texture2D" uid="uid://cqdgmgd4opq6x" path="res://Sprites/enemy_1_placeholder.png" id="2_ap7sb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4383"]
-size = Vector2(42, 85)
+size = Vector2(115, 156)
 
 [node name="first_enemy" type="CharacterBody2D"]
 script = ExtResource("1_rfmrc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ylqi8")
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ap7sb")
 
 [node name="shoot_timer" type="Timer" parent="."]
 
 [node name="rotator" type="Node2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 6)
+position = Vector2(-5.5, -1)
 shape = SubResource("RectangleShape2D_t4383")
 
 [node name="util_timer" type="Timer" parent="."]

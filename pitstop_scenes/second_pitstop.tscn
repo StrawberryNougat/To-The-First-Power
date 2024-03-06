@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvnwupeoe4nsx"]
+[gd_scene load_steps=13 format=3 uid="uid://cvnwupeoe4nsx"]
 
 [ext_resource type="PackedScene" uid="uid://b53n7mvh50x7x" path="res://pitstop_scenes/pitstop_scenes.tscn" id="1_xnepo"]
 [ext_resource type="Script" path="res://pitstop_scenes/second_pitstop.gd" id="2_oy55p"]
 [ext_resource type="PackedScene" uid="uid://bcnxpksao7wux" path="res://pitstop_scenes/player_scene.tscn" id="3_ew4g8"]
+[ext_resource type="Texture2D" uid="uid://vpxcidx82gt1" path="res://Sprites/flower_field.png" id="3_fqv6x"]
 [ext_resource type="PackedScene" uid="uid://q1jsmk1qap2h" path="res://Candidate/creature_scene.tscn" id="4_d5cxr"]
 [ext_resource type="PackedScene" uid="uid://bnd2m7gtclbxs" path="res://npc_scenes/more_health_trainer.tscn" id="5_sw2do"]
 [ext_resource type="PackedScene" uid="uid://bmdk1de5n4wua" path="res://npc_scenes/smaller_hitbox_trainer.tscn" id="6_7aht5"]
@@ -21,19 +22,24 @@ radius = 48.0416
 [node name="second_pitstop" instance=ExtResource("1_xnepo")]
 script = ExtResource("2_oy55p")
 
-[node name="exit" type="Area2D" parent="." index="4"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(554, 324)
+scale = Vector2(2.13281, 2.02161)
+texture = ExtResource("3_fqv6x")
+
+[node name="exit" type="Area2D" parent="." index="5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit" index="0"]
 position = Vector2(552, 32)
 shape = SubResource("RectangleShape2D_o353e")
 
-[node name="player_scene" parent="." index="5" instance=ExtResource("3_ew4g8")]
+[node name="player_scene" parent="." index="6" instance=ExtResource("3_ew4g8")]
 position = Vector2(563, 458)
 
-[node name="Creature_Scene" parent="." index="6" instance=ExtResource("4_d5cxr")]
+[node name="Creature_Scene" parent="." index="7" instance=ExtResource("4_d5cxr")]
 position = Vector2(564, 578)
 
-[node name="more_health_trainer" parent="." index="7" instance=ExtResource("5_sw2do")]
+[node name="more_health_trainer" parent="." index="8" instance=ExtResource("5_sw2do")]
 position = Vector2(105, 296)
 
 [node name="Actionable" parent="more_health_trainer" index="1" instance=ExtResource("7_307ej")]
@@ -44,7 +50,7 @@ dialogue_start = "More_Health"
 position = Vector2(1, 9)
 shape = SubResource("CircleShape2D_8p0d7")
 
-[node name="smaller_hitbox_trainer" parent="." index="8" instance=ExtResource("6_7aht5")]
+[node name="smaller_hitbox_trainer" parent="." index="9" instance=ExtResource("6_7aht5")]
 position = Vector2(1017, 308)
 
 [node name="Actionable" parent="smaller_hitbox_trainer" index="1" instance=ExtResource("7_307ej")]

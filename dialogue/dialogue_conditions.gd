@@ -9,6 +9,7 @@ var second_choice = ""
 signal chose_more_health
 signal chose_smaller_hitbox
 
+
 func _process(_delta):
 	#First pitstop choices
 	if (opening_choice == "strength"):
