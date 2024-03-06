@@ -40,7 +40,7 @@ func _on_shoot_timer_timeout():
 		bullet.position = j.global_position
 		bullet.rotation = j.global_rotation
 
-func hit():
+func hit_enemy():
 	if enemy_health <= 0:
 		on_exit_fight()
 		emit_signal("enemy_dead")

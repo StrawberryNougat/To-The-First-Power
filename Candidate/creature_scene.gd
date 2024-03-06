@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal creature_dead()
 
-const bullet_scene = preload("res://fight_scenes/bullets/basic_bullet.tscn")
+const bullet_scene = preload("res://fight_scenes/bullets/player_bullet.tscn")
 var current_form
 var speed = 300
 var bullet_scale = Vector2(2.0,2.0)
@@ -99,7 +99,7 @@ func smaller_hitbox():
 		sm_hb = true
 	current_animation = null
 
-func hit():
+func hit_player():
 	if !invincible:
 		health = health - 1
 		print("Hit!")

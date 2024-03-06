@@ -1,6 +1,6 @@
 extends VisibleOnScreenNotifier2D
 
-var speed = 100
+var speed = 500
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,9 +13,9 @@ func _process(delta):
 #if this stops working again try to connect the signal with code
 func _on_area_2d_body_entered(body):
 	#print("hit")
-	if body.has_method("hit_player"):
-		body.hit_player()
-	queue_free() # Replace with function body.
+	if body.has_method("hit_enemy"):
+		body.hit_enemy()
+		queue_free() # Replace with function body.
 
 func _on_screen_exited() -> void:
 	queue_free()
