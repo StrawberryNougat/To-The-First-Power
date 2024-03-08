@@ -28,7 +28,7 @@ func _process(delta):
 	pass
 
 func change_to_str():
-	current_build = load("res://Sprites/candidate_sprites/creature_pink.png")
+	current_build = load("res://Sprites/candidate_sprites/frog.png")
 	#current_build.resize(100,100,1)
 	texture = current_build
 	emit_signal("strength_up")

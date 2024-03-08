@@ -28,7 +28,7 @@ var attackOrder = [0, 7, 4, 3, 1, 2, 6, 5, 1]
 #array for storing the length of attacks, each number is a duration in seconds
 var attackLengths = [5, 5.5, 10, 10, 10, 10, 10, 5, 5]
 
-var enemy_health = 20
+var enemy_health = 30
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
