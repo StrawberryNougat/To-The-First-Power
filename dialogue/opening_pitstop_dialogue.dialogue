@@ -24,8 +24,8 @@ Lithe Young Man: Are you sure that little thing can actually dodge? A few hours 
 - Gotta go Fast!
 	Lithe Young Man: Good choice, buddy!
 	set dialogue_conditions.opening_choice = "speed"
-- Go away, faker
-	Lithe Young Man: Faker?! Wait, I think this reference is going too far...
+- Go away!
+	Lithe Young Man: Fine!  I'll go away from you faster than you'll ever be >:(
 
 => END
 

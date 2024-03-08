@@ -41,7 +41,7 @@ func _ready():
 	#create timer node on entering scene tree and set timer conditions
 	timer = Timer.new()
 	add_child(timer)
-	timer.wait_time = .5
+	timer.wait_time = 1
 	timer.one_shot = true
 	timer.autostart = false
 	timer.timeout.connect(_on_timer_timeout)

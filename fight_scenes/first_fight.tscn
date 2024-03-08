@@ -18,7 +18,7 @@ scale = Vector2(0.59625, 0.59625)
 texture = ExtResource("3_iriaq")
 
 [node name="Creature_Scene" parent="." index="1" instance=ExtResource("2_g8hdm")]
-position = Vector2(108, 343)
+position = Vector2(414, 346)
 
 [node name="first_enemy" parent="." index="2" instance=ExtResource("3_t0ja6")]
 position = Vector2(985, 324)

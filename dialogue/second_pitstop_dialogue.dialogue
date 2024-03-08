@@ -1,13 +1,17 @@
 ~ More_Health
-Person: Dialogue
+Tired-looking person: Hm... 5 bullets is all it takes to kill your beloved ally?  Would you like some more
 - Yes
-	Person: Cool
+	Tired-looking person: Delightful.  I'm glad to know considerate people still exist.
 	set dialogue_conditions.second_choice = "more_health"
+- No
+	Tired-looking person: Hmph.  Don't cry to me when it dies.
 => END
 
 ~ Smaller_Hitbox
-Queen: Gaslight, Gatekeep, Girlboss!
-- Slay
-	Queen: Periodt.
+Energetic Athlete: You don't need to worry about health if you can dodge more easily!
+- I agree
+	Energetic Athlete: Good thinking!
 	set dialogue_conditions.second_choice = "smaller_hitbox"
+- That seems reckless...
+	Energetic Athlete: You're no fun...
 => END

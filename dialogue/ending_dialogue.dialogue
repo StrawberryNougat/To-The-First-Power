@@ -1,4 +1,17 @@
 ~ ending_intro
 Loiterer: Good job so far.  I suppose you could be strong enough to obtain power...
-
+if dialogue_conditions.opening_choice == "strength" and dialogue_conditions.second_choice == "more_health":
+	Loiterer: A straightforward approach is wise.  Back when they were still around, did you 'hit the gym', as they say?
+elif dialogue_conditions.opening_choice == "strength" and dialogue_conditions.second_choice == "smaller_hitbox":
+	Loiterer: Sting like a butterfly, fly like a bee... or was it something else?  In any case, You've certainly created a foce to reckon with.
+elif dialogue_conditions.opening_choice == "speed" and dialogue_conditions.second_choice == "more_health":
+	Loiterer: Nice and safe - your ally can dodge, but in case you get hit they can get back up easily.  Resilience is good in both battle and conversation.  You have been teaching the candidate to speak, right?
+elif dialogue_conditions.opening_choice == "speed" and dialogue_conditions.second_choice == "smaller_hitbox":
+	Loiterer: Wow, I almost didn't spot you two!  Did you take any damage at all?
+elif dialogue_conditions.opening_choice == "vis_hitbox" and dialogue_conditions.second_choice == "more_health":
+	Loiterer: Ah, are you not secure in your dodging skills?  That's okay, by the way.  Some hits are particularly tricky...
+elif dialogue_conditions.opening_choice == "vis_hitbox" and dialogue_conditions.second_choice == "smaller_hitbox":
+	Loiterer: Talk about a complementary skillset!  If you could change the hitbox again, what would you do to it?
+else:
+	Loiterer: Are you the nostalgic sort?  You haven't changed them at all...  I commend you, but will you be able to face the challenges ahead?
 => END
