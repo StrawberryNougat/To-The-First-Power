@@ -30,10 +30,13 @@ text = "Avery Taylor
 Duncan Winn
 Eleanor Buvel Mather
 Esther Moon
+Maiikiru
 Michael Helmicki
 Roderic Parson
 Sophia Regnault
-Trevor Vandersall"
+Trevor Vandersall
+
+Dialogue System by Nathan Hoad (License: https://github.com/nathanhoad/godot_dialogue_manager/blob/main/LICENSE)"
 fit_content = true
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
