@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bumdxy42h4pem"]
+[gd_scene load_steps=8 format=3 uid="uid://bumdxy42h4pem"]
 
 [ext_resource type="PackedScene" uid="uid://itd28xc30rm3" path="res://fight_scenes/battle_scenes.tscn" id="1_spoch"]
 [ext_resource type="Script" path="res://fight_scenes/first_fight.gd" id="2_5j5pe"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5mdi"]
 size = Vector2(101.5, 219)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_64ijy"]
+distance = -2.0
 
 [node name="first_fight" instance=ExtResource("1_spoch")]
 script = ExtResource("2_5j5pe")
@@ -40,5 +43,36 @@ offset_bottom = 248.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit" index="0"]
 position = Vector2(1101, 333)
 shape = SubResource("RectangleShape2D_a5mdi")
+
+[node name="Lower_wall" type="StaticBody2D" parent="." index="6"]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lower_wall" index="0"]
+position = Vector2(568, 648)
+shape = SubResource("WorldBoundaryShape2D_64ijy")
+
+[node name="left_wall" type="StaticBody2D" parent="." index="7"]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_wall" index="0"]
+position = Vector2(0, 246)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_64ijy")
+
+[node name="upper_wall" type="StaticBody2D" parent="." index="8"]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upper_wall" index="0"]
+position = Vector2(554, 0)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_64ijy")
+
+[node name="right_wall" type="StaticBody2D" parent="." index="9"]
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_wall" index="0"]
+position = Vector2(1152, 247)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_64ijy")
 
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
