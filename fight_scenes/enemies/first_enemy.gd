@@ -24,15 +24,21 @@ var shot_speed = 100
 var curAttack = 0
 #array for storing the order of attacks, each number is an attack type
 #0: basic, 1: clock, 2: harder basic, 3: circles, 4: sprinkler, 5: *reverse, 6: rate change, 7: on off
-var attackOrder = [0, 7, 4, 3, 1, 2, 6, 5, 1]
+var attackOrder = [1, 1, 4, 3, 1, 2, 6, 5, 1]
 #array for storing the length of attacks, each number is a duration in seconds
-var attackLengths = [5, 5.5, 10, 10, 10, 10, 10, 5, 5]
+var attackLengths = [4, 4, 10, 10, 10, 10, 10, 5, 5]
+#array for storing where enemy should move during attacks
+var attackmovement = ["simple", "backwards_simple", "none", "diagonal", "backwards_diagonal", "none", "none", "none", "none"]
+
 
 var enemy_health = 30
 
+var movement_speed_x = 50
+var movement_speed_y = 50
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	startAttack(attackOrder[curAttack], attackLengths[curAttack])
+	startAttack(attackOrder[curAttack], attackLengths[curAttack], attackmovement[curAttack])
 	
 	#pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,9 +69,11 @@ func _process(delta):
 				util_timer.start()
 	if (shouldRotate):
 		setRotation(rotator.rotation_degrees + rotate_speed * delta)
+	velocity = Vector2(movement_speed_x, movement_speed_y)
+	move_and_slide()
 
 
-func startAttack(type: int, delay: int):
+func startAttack(type: int, delay: int, movement: String):
 	# depedning on the attack type passed in, change the variables which control the bullet spawning
 	# when adding a new attack, add its number to the match and set the values desired. Radius can also be changed
 	#define defaults here so they don't need to be explicitly set for every attack
@@ -117,6 +125,25 @@ func startAttack(type: int, delay: int):
 			shoot_timer.wait_time = .2
 			spawn_point_count = 4
 			radius = 100 
+	match movement:
+		"none":
+			movement_speed_x = 0
+			movement_speed_y = 0
+		"simple":
+			movement_speed_x = -50
+			movement_speed_y = 0
+		"diagonal":
+			movement_speed_x = -50
+			movement_speed_y = -50
+		"backwards_simple":
+			movement_speed_x = 50
+			movement_speed_y = 0
+		"backwards_diagobal":
+			movement_speed_x = 50
+			movement_speed_y = 50
+		_:
+			movement_speed_x = 0
+			movement_speed_y = 0
 	#Now create the spawner
 	rotator.rotation_degrees = fmod(starting_rotation, 360)
 	var step = 2 * PI / spawn_point_count
@@ -130,6 +157,9 @@ func startAttack(type: int, delay: int):
 	#done adding spawn points, now start timer until this attack ends
 	phase_timer.wait_time = delay
 	phase_timer.start()
+	
+	
+	
 	
 
 #this timer controls how long an attack lasts, when it times out, it removes all the children of the rotator
@@ -146,7 +176,7 @@ func _on_phase_timer_timeout():
 	var nextAttack = (curAttack + 1) % len(attackOrder)
 	#wait some time after end of a phase
 	await get_tree().create_timer(phase_delay).timeout
-	startAttack(attackOrder[nextAttack], attackLengths[nextAttack])
+	startAttack(attackOrder[nextAttack], attackLengths[nextAttack], attackmovement[nextAttack])
 	curAttack = nextAttack
 
 #this timer controls how fast enemy shoots, on timeout it creates bullets at each child of the rotator
