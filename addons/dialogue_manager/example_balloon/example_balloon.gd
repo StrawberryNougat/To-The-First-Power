@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
+signal dialogue_ended
 ## The dialogue resource
 var resource: DialogueResource
 
@@ -26,6 +27,7 @@ var dialogue_line: DialogueLine:
 		# The dialogue has finished so close the balloon
 		if not next_dialogue_line:
 			queue_free()
+			Global.in_dialogue = false
 			return
 
 		# If the node isn't ready yet then none of the labels will be ready yet either
@@ -106,7 +108,7 @@ func _on_mutated(_mutation: Dictionary) -> void:
 
 func _on_balloon_gui_input(event: InputEvent) -> void:
 	# If the user clicks on the balloon while it's typing then skip typing
-	if dialogue_label.is_typing and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+	if dialogue_label.is_typing and Input.is_action_pressed("interact") and event.is_pressed():#event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		get_viewport().set_input_as_handled()
 		dialogue_label.skip_typing()
 		return
