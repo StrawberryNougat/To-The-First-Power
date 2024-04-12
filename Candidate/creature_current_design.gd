@@ -40,7 +40,8 @@ func change_to_spd():
 	emit_signal("speed_up")
 
 func change_to_vis_h():
-	current_build = load("res://Sprites/candidate_sprites/initial_creature.png")
+	current_build = load("res://Sprites/candidate_sprites/visHitbox.png")
+	attacking_sprite = load("res://Sprites/candidate_sprites/visHitboxAttack.png")
 	texture = current_build
 	emit_signal("visible_hitbox")
 	
@@ -50,7 +51,13 @@ func change_to_more_health():
 	emit_signal("more_health")
 
 func change_to_sm_hb():
-	current_build = load("res://Sprites/candidate_sprites/initial_creature.png") #Uncomment when sprite is made
+	#current_build = load("res://Sprites/candidate_sprites/initial_creature.png") #Uncomment when sprite is made
+	if (current_build == load("res://Sprites/candidate_sprites/visHitbox.png")):
+		current_build = load("res://Sprites/candidate_sprites/visHitbox_smallHitbox.png")
+		attacking_sprite = load("res://Sprites/candidate_sprites/visHitbox_smallHitbox.png")
+	else:
+		current_build = load("res://Sprites/candidate_sprites/initial_creature.png") #Uncomment when sprite is made
+	
 	texture = current_build
 	emit_signal("smaller_hitbox")
 
