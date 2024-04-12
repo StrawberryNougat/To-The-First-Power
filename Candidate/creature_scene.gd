@@ -23,9 +23,14 @@ var sm_hb = false
 @onready var hitbox = get_node("hitbox")
 @onready var pauseMenu = get_node("Node2D/PauseMenu")
 @onready var animation = get_node("creature_current_design/shoot_animation")
+@onready var animation2 = get_node("creature_current_design/shoot_animation_2")
 @onready var shoot_sfx = get_node("Node2D/PauseMenu/shoot_sfx")
 
 var current_animation
+
+var phase_2_active
+
+var current_animation_2
 
 
 # Called when the node enters the scene tree for the first time.
@@ -46,6 +51,8 @@ func _ready():
 	timer.autostart = false
 	timer.timeout.connect(_on_timer_timeout)
 	current_animation = null
+	current_animation_2 = null
+	phase_2_active = false
 	
 	
 
@@ -55,6 +62,7 @@ func _process(_delta):
 	velocity = direction * speed 
 	if(!Global.in_dialogue):
 		move_and_slide()
+#
 
 
 func speed_up():
@@ -82,10 +90,11 @@ func visible_hitbox():
 		speed = 300
 		hitbox.visible = true
 		vis_hitbox = true
-	current_animation = null
+	current_animation = "vis_hit_ani"
 
 
 func more_health():
+	phase_2_active = true
 	if (!moreHealth):
 		health = health + 3
 		moreHealth = true
@@ -94,13 +103,15 @@ func more_health():
 	current_animation = null
 
 func smaller_hitbox():
+	phase_2_active = true
 	if (!sm_hb):
 		collider.scale /= 4
 		hitbox.scale /= 4
 		if (vis_hitbox):
+			current_animation_2 = "vis_small_ani"
 			hitbox.visible = true
 		sm_hb = true
-	current_animation = null
+	#current_animation = null
 
 func hit_player():
 	if !invincible:
@@ -122,9 +133,13 @@ func _unhandled_input(_event):
 	if Input.is_action_just_pressed("interact") and (get_tree().current_scene.name == "first_fight" or get_tree().current_scene.name == "second_fight"):
 		# Instantiate bullet and add it to scene
 		
-		if (current_animation != null):
+		if (current_animation != null && !phase_2_active):
 			animation.visible = true
 			animation.play(current_animation)
+		if (current_animation_2 != null && phase_2_active):
+			animation2.visible = true
+			animation2.play(current_animation_2)
+		
 		shoot_sfx.play()
 		var bullet = bullet_scene.instantiate()
 		get_tree().root.add_child(bullet)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3h5wttrlkjon"]
 
-[ext_resource type="Texture2D" uid="uid://nqnkxoi0lfg6" path="res://Sprites/npc_sprites/npc_placeholder.png" id="1_8fbiq"]
+[ext_resource type="Texture2D" uid="uid://csolqtqarniq2" path="res://Sprites/npc_sprites/tatteredguy.png" id="1_eexw0"]
 
 [node name="loiterer" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8fbiq")
+texture = ExtResource("1_eexw0")
