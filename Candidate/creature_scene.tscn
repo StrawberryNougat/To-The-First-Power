@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://q1jsmk1qap2h"]
+[gd_scene load_steps=19 format=3 uid="uid://q1jsmk1qap2h"]
 
 [ext_resource type="Script" path="res://Candidate/creature_scene.gd" id="1_2rtne"]
 [ext_resource type="Script" path="res://Candidate/creature_current_design.gd" id="3_06wxs"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://br7pmh83nluvw" path="res://Sprites/candidate_sprites/visHitbox.png" id="6_8qial"]
 [ext_resource type="Texture2D" uid="uid://wvdya48gprbb" path="res://Sprites/candidate_sprites/visHitboxAttack.png" id="7_yowte"]
 [ext_resource type="Texture2D" uid="uid://cxiobwfp8t3us" path="res://Sprites/candidate_sprites/visHitbox_smallHitbox.png" id="8_5wc6g"]
+[ext_resource type="Texture2D" uid="uid://bphpakf5wo3pw" path="res://Sprites/candidate_sprites/boiAttack.png" id="8_bopnc"]
 [ext_resource type="AudioStream" uid="uid://bkgn5lfmf3j8o" path="res://Sounds/sfx/BulletSFX.mp3" id="8_sei1r"]
+[ext_resource type="Texture2D" uid="uid://q5g1b7vspwmx" path="res://Sprites/candidate_sprites/boi.png" id="9_farie"]
 [ext_resource type="AudioStream" uid="uid://dwlb2e1v6q5v6" path="res://Sounds/sfx/ChangeFormJingle.mp3" id="9_lw680"]
 [ext_resource type="Texture2D" uid="uid://pe5ut4j84mxd" path="res://Sprites/candidate_sprites/vHB_smHBAttack.png" id="9_mutum"]
 
@@ -41,6 +43,22 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oslm4"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bopnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_farie")
+}],
+"loop": false,
+"name": &"speed_health_ani",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("9_mutum")
@@ -66,6 +84,8 @@ position = Vector2(-5.72205e-06, 1.90735e-06)
 texture = ExtResource("4_lfr8q")
 script = ExtResource("3_06wxs")
 
+[node name="animation_timer" type="Timer" parent="creature_current_design"]
+
 [node name="shoot_animation" type="AnimatedSprite2D" parent="creature_current_design"]
 visible = false
 position = Vector2(1.56539e-05, -5.09661e-06)
@@ -75,7 +95,7 @@ animation = &"vis_hit_ani"
 [node name="shoot_animation_2" type="AnimatedSprite2D" parent="creature_current_design"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_oslm4")
-animation = &"vis_speed_ani"
+animation = &"speed_health_ani"
 
 [node name="change_form_sfx" type="AudioStreamPlayer" parent="creature_current_design"]
 stream = ExtResource("9_lw680")

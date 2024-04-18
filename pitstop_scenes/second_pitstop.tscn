@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvnwupeoe4nsx"]
+[gd_scene load_steps=14 format=3 uid="uid://cvnwupeoe4nsx"]
 
 [ext_resource type="PackedScene" uid="uid://b53n7mvh50x7x" path="res://pitstop_scenes/pitstop_scenes.tscn" id="1_xnepo"]
 [ext_resource type="Script" path="res://pitstop_scenes/second_pitstop.gd" id="2_oy55p"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmdk1de5n4wua" path="res://npc_scenes/smaller_hitbox_trainer.tscn" id="6_7aht5"]
 [ext_resource type="PackedScene" uid="uid://b0k1h4pwkq0g3" path="res://dialogue/actionable.tscn" id="7_307ej"]
 [ext_resource type="Resource" uid="uid://du0bk6c6t44sq" path="res://dialogue/second_pitstop_dialogue.dialogue" id="8_gtgct"]
+[ext_resource type="AudioStream" uid="uid://bywrfvd04a4bw" path="res://Sounds/music/ttfp_pitstop_looped.wav" id="10_lw08n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o353e"]
 size = Vector2(166, 67)
@@ -60,5 +61,10 @@ dialogue_start = "Smaller_Hitbox"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="smaller_hitbox_trainer/Actionable" index="0"]
 position = Vector2(-1, 8)
 shape = SubResource("CircleShape2D_aokvs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
+stream = ExtResource("10_lw08n")
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

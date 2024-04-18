@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8kv1h8yj2x75"]
+[gd_scene load_steps=9 format=3 uid="uid://b8kv1h8yj2x75"]
 
 [ext_resource type="PackedScene" uid="uid://itd28xc30rm3" path="res://fight_scenes/battle_scenes.tscn" id="1_m0xuu"]
 [ext_resource type="Script" path="res://fight_scenes/second_fight.gd" id="2_dpqew"]
 [ext_resource type="PackedScene" uid="uid://q1jsmk1qap2h" path="res://Candidate/creature_scene.tscn" id="2_kxn5h"]
 [ext_resource type="Texture2D" uid="uid://con1pogdmtu52" path="res://Sprites/placeholder_battle_background_1.png" id="3_xcfof"]
 [ext_resource type="PackedScene" uid="uid://oxmgnoxwt81c" path="res://fight_scenes/enemies/second_enemy.tscn" id="3_yq64n"]
+[ext_resource type="AudioStream" uid="uid://b5cfw7g5cl0rk" path="res://Sounds/music/ttfp_battlemusic_looped.wav" id="6_kc25h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo8f4"]
 size = Vector2(101.5, 219)
@@ -74,5 +75,10 @@ disable_mode = 1
 position = Vector2(1152, 247)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_ihmek")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
+stream = ExtResource("6_kc25h")
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

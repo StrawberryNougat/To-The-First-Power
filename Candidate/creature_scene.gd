@@ -25,6 +25,7 @@ var sm_hb = false
 @onready var animation = get_node("creature_current_design/shoot_animation")
 @onready var animation2 = get_node("creature_current_design/shoot_animation_2")
 @onready var shoot_sfx = get_node("Node2D/PauseMenu/shoot_sfx")
+@onready var current_design = get_node("creature_current_design")
 
 var current_animation
 
@@ -40,6 +41,7 @@ func _ready():
 	image.visible_hitbox.connect(visible_hitbox)
 	image.more_health.connect(more_health)
 	image.smaller_hitbox.connect(smaller_hitbox)
+
 	#animation.stop()
 	
 
@@ -100,7 +102,8 @@ func more_health():
 		moreHealth = true
 	else:
 		health = health
-	current_animation = null
+	if (current_animation == "speed_ani"):
+		current_animation_2 = "speed_health_ani"
 
 func smaller_hitbox():
 	phase_2_active = true
@@ -133,12 +136,14 @@ func _unhandled_input(_event):
 	if Input.is_action_just_pressed("interact") and (get_tree().current_scene.name == "first_fight" or get_tree().current_scene.name == "second_fight"):
 		# Instantiate bullet and add it to scene
 		
-		if (current_animation != null && !phase_2_active):
-			animation.visible = true
-			animation.play(current_animation)
-		if (current_animation_2 != null && phase_2_active):
-			animation2.visible = true
-			animation2.play(current_animation_2)
+		#if (current_animation != null && !phase_2_active):
+			#animation.visible = true
+			#animation.play(current_animation)
+		#if (current_animation_2 != null && phase_2_active):
+			#animation2.visible = true
+			#animation2.play(current_animation_2)
+		
+		#current_design.texture = current_design.attacking_sprite
 		
 		shoot_sfx.play()
 		var bullet = bullet_scene.instantiate()
@@ -150,6 +155,8 @@ func _unhandled_input(_event):
 		bullet.position = position + bullet_offset
 		bullet.rotation = rotation
 		bullet.apply_scale(bullet_scale)
+		
+		#current_design.texture = current_design.current_build
 		#animation.visible = false
 		return
 

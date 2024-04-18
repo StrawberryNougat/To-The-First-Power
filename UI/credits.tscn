@@ -26,15 +26,26 @@ offset_top = 650.0
 offset_right = 775.0
 offset_bottom = 2145.0
 bbcode_enabled = true
-text = "Avery Taylor
-Duncan Winn
+text = "[b]Team Lead[/b]
 Eleanor Buvel Mather
-Esther Moon
+
+[b]Programming[/b]
+Avery Taylor
+Eleanor Buvel Mather
 Maiikiru
-Michael Helmicki
 Roderic Parson
-Sophia Regnault
 Trevor Vandersall
+
+[b]Art[/b]
+Avery Taylor
+Esther Moon
+Jasmine Cobb (ivu)
+Michael Helmicki
+Sophia Regnault
+
+[b]Music/Sfx[/b]
+Duncan Winn
+Roderic Parson
 
 Dialogue System by Nathan Hoad (License: https://github.com/nathanhoad/godot_dialogue_manager/blob/main/LICENSE)"
 fit_content = true
