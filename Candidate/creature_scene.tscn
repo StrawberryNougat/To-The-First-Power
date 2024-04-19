@@ -72,7 +72,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rglyc"]
-size = Vector2(70, 63)
+size = Vector2(50, 48)
 
 [node name="Creature_Scene" type="CharacterBody2D"]
 collision_layer = 3
@@ -106,12 +106,12 @@ bus = &"Sfx"
 wait_time = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 1.5)
 shape = SubResource("RectangleShape2D_rglyc")
 
 [node name="hitbox" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.7, 0.7)
+position = Vector2(0.500002, -9.53674e-07)
+scale = Vector2(0.53, 0.5)
 texture = ExtResource("4_gyfsk")
 
 [node name="Node2D" type="Node2D" parent="."]

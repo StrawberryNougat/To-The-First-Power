@@ -24,7 +24,7 @@ var shot_speed = 100
 var curAttack = 0
 #array for storing the order of attacks, each number is an attack type
 #0: basic, 1: clock, 2: harder basic, 3: circles, 4: sprinkler, 5: *reverse, 6: rate change, 7: on off
-var attackOrder = [2, 6, 3, 4, 2, 7, 6, 5, 2]
+var attackOrder = [2, 6, 4, 6, 2, 7, 6, 5, 6]
 #array for storing the length of attacks, each number is a duration in seconds
 var attackLengths = [5, 5.5, 10, 10, 10, 10, 10, 5, 5]
 #array for enemy movement during fight
@@ -136,7 +136,7 @@ func startAttack(type: int, delay: int, movement: String):
 		"backwards_simple":
 			movement_speed_x = 50
 			movement_speed_y = 0
-		"backwards_diagobal":
+		"backwards_diagonal":
 			movement_speed_x = 50
 			movement_speed_y = 50
 		_:
