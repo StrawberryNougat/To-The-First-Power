@@ -79,12 +79,13 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_2rtne")
 
+[node name="shoot_timer" type="Timer" parent="."]
+wait_time = 0.1
+
 [node name="creature_current_design" type="Sprite2D" parent="."]
 position = Vector2(-5.72205e-06, 1.90735e-06)
 texture = ExtResource("4_lfr8q")
 script = ExtResource("3_06wxs")
-
-[node name="animation_timer" type="Timer" parent="creature_current_design"]
 
 [node name="shoot_animation" type="AnimatedSprite2D" parent="creature_current_design"]
 visible = false
@@ -100,6 +101,9 @@ animation = &"speed_health_ani"
 [node name="change_form_sfx" type="AudioStreamPlayer" parent="creature_current_design"]
 stream = ExtResource("9_lw680")
 bus = &"Sfx"
+
+[node name="animation_timer" type="Timer" parent="creature_current_design"]
+wait_time = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 1.5)
@@ -185,6 +189,8 @@ stream = ExtResource("8_sei1r")
 volume_db = -2.0
 bus = &"Sfx"
 
+[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="creature_current_design/animation_timer" to="creature_current_design" method="_on_animation_timer_timeout"]
 [connection signal="pause" from="Node2D/PauseMenu" to="." method="_on_pause_menu_pause"]
 [connection signal="resume" from="Node2D/PauseMenu" to="." method="_on_pause_menu_resume"]
 [connection signal="pressed" from="Node2D/PauseMenu/MainMenu" to="Node2D/PauseMenu" method="_on_main_menu_pressed"]

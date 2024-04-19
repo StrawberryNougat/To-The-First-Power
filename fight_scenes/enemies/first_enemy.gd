@@ -24,14 +24,14 @@ var shot_speed = 100
 var curAttack = 0
 #array for storing the order of attacks, each number is an attack type
 #0: basic, 1: clock, 2: harder basic, 3: circles, 4: sprinkler, 5: *reverse, 6: rate change, 7: on off
-var attackOrder = [1, 1, 4, 3, 1, 2, 6, 5, 1]
+var attackOrder = [3, 1, 4, 3, 1, 2, 6, 5, 3]
 #array for storing the length of attacks, each number is a duration in seconds
 var attackLengths = [4, 4, 10, 10, 10, 10, 10, 5, 5]
 #array for storing where enemy should move during attacks
 var attackmovement = ["simple", "backwards_simple", "none", "diagonal", "backwards_diagonal", "none", "none", "none", "none"]
 
 
-var enemy_health = 30
+var enemy_health = 60
 
 var movement_speed_x = 50
 var movement_speed_y = 50

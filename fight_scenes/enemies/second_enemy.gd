@@ -29,7 +29,7 @@ var attackOrder = [2, 6, 3, 4, 2, 7, 6, 5, 2]
 var attackLengths = [5, 5.5, 10, 10, 10, 10, 10, 5, 5]
 #array for enemy movement during fight
 var attackmovement = ["simple", "backwards_simple", "none", "diagonal", "backwards_diagonal", "none", "none", "none", "none"]
-var enemy_health = 50
+var enemy_health = 150
 
 var movement_speed_x = 50
 var movement_speed_y = 50

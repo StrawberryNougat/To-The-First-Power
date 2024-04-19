@@ -26,12 +26,15 @@ var sm_hb = false
 @onready var animation2 = get_node("creature_current_design/shoot_animation_2")
 @onready var shoot_sfx = get_node("Node2D/PauseMenu/shoot_sfx")
 @onready var current_design = get_node("creature_current_design")
+@onready var shoot_timer = $shoot_timer
 
 var current_animation
 
 var phase_2_active
 
 var current_animation_2
+
+var can_shoot
 
 
 # Called when the node enters the scene tree for the first time.
@@ -55,6 +58,7 @@ func _ready():
 	current_animation = null
 	current_animation_2 = null
 	phase_2_active = false
+	can_shoot = true
 	
 	
 
@@ -98,7 +102,7 @@ func visible_hitbox():
 func more_health():
 	phase_2_active = true
 	if (!moreHealth):
-		health = health + 3
+		health = health*2
 		moreHealth = true
 	else:
 		health = health
@@ -133,7 +137,7 @@ func _on_timer_timeout():
 	invincible = false
 
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed("interact") and (get_tree().current_scene.name == "first_fight" or get_tree().current_scene.name == "second_fight"):
+	if Input.is_action_pressed("interact") and (get_tree().current_scene.name == "first_fight" or get_tree().current_scene.name == "second_fight") and can_shoot:
 		# Instantiate bullet and add it to scene
 		
 		#if (current_animation != null && !phase_2_active):
@@ -144,6 +148,7 @@ func _unhandled_input(_event):
 			#animation2.play(current_animation_2)
 		
 		#current_design.texture = current_design.attacking_sprite
+		can_shoot = false
 		
 		shoot_sfx.play()
 		var bullet = bullet_scene.instantiate()
@@ -156,6 +161,9 @@ func _unhandled_input(_event):
 		bullet.rotation = rotation
 		bullet.apply_scale(bullet_scale)
 		
+		
+		shoot_timer.start()
+		
 		#current_design.texture = current_design.current_build
 		#animation.visible = false
 		return
@@ -167,3 +175,8 @@ func _on_pause_menu_pause():
 
 func _on_pause_menu_resume():
 	pauseMenu.Resume()
+
+
+func _on_shoot_timer_timeout():
+	can_shoot = true # Replace with function body.
+
