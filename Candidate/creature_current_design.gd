@@ -33,7 +33,8 @@ func _process(delta):
 		
 
 func change_to_str():
-	current_build = load("res://Sprites/candidate_sprites/frog.png")
+	current_build = load("res://Sprites/candidate_sprites/power.png")
+	attacking_sprite = load("res://Sprites/candidate_sprites/power_shoot.png")
 	#current_build.resize(100,100,1)
 	#texture = current_build
 	emit_signal("strength_up")
@@ -57,9 +58,9 @@ func change_to_more_health():
 	if (current_build == load("res://Sprites/candidate_sprites/to_the_first_power_speedup.png")):
 		current_build = load("res://Sprites/candidate_sprites/boi.png") #Uncomment when sprite is made
 		attacking_sprite = load("res://Sprites/candidate_sprites/boiAttack.png")
-	if (current_build == load("res://Sprites/candidate_sprites/frog.png")):
-		current_build = load("res://Sprites/candidate_sprites/placeholderHitbox.png") #Uncomment when sprite is made
-		attacking_sprite = load("res://Sprites/candidate_sprites/placeholderHitbox2.png")
+	if (current_build == load("res://Sprites/candidate_sprites/power.png")):
+		current_build = load("res://Sprites/candidate_sprites/Extra_HealthNormal.png") #Uncomment when sprite is made
+		attacking_sprite = load("res://Sprites/candidate_sprites/Extra_Health.png")
 	#texture = current_build
 	emit_signal("more_health")
 
@@ -71,9 +72,9 @@ func change_to_sm_hb():
 	if (current_build == load("res://Sprites/candidate_sprites/to_the_first_power_speedup.png")):
 		current_build = load("res://Sprites/candidate_sprites/kangoRat.png") #Uncomment when sprite is made
 		attacking_sprite = load("res://Sprites/candidate_sprites/kangoRatAttack.png")
-	if (current_build == load("res://Sprites/candidate_sprites/frog.png")):
-		current_build = load("res://Sprites/candidate_sprites/placeholderHitbox.png") #Uncomment when sprite is made
-		attacking_sprite = load("res://Sprites/candidate_sprites/placeholderHitbox2.png")
+	if (current_build == load("res://Sprites/candidate_sprites/power.png")):
+		current_build = load("res://Sprites/candidate_sprites/hitboxnormal.png") #Uncomment when sprite is made
+		attacking_sprite = load("res://Sprites/candidate_sprites/hitboxshoot.png")
 	
 		
 	#texture = current_build
